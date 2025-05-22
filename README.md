@@ -1,6 +1,6 @@
 # Multi-Agent Generator
 
-A powerful tool that transforms plain English instructions into fully configured multi-agent AI teams - no scripting, no complexity. Powered by multiple LLM providers (OpenAI and IBM WatsonX) with an intuitive Streamlit UI.
+A powerful tool that transforms plain English instructions into fully configured multi-agent AI teams - no scripting, no complexity. Powered by multiple LLM providers (OpenAI, IBM WatsonX, and Ollama) with an intuitive Streamlit UI.
 
 ## Features
 
@@ -13,6 +13,7 @@ A powerful tool that transforms plain English instructions into fully configured
 - **Multiple LLM Providers**:
   - **OpenAI**: Use GPT models for code generation
   - **IBM WatsonX**: Enterprise-grade access to Llama and other foundation models
+  - **Ollama**: Use Ollama models for code generation
 
 - **User-Friendly Interface**: Streamlit-based UI for effortless code generation
 - **Intelligent Analysis**: Analyzes natural language requirements to suggest appropriate agents, roles, and tasks
@@ -37,13 +38,15 @@ pip install multi-agent-generator[dev]
 
 ## Prerequisites
 
-- OpenAI API key OR WatsonX API key and Project ID
+- OpenAI API key OR WatsonX API key and Project ID OR Ollama API key
 - Environment variables setup:
   - `OPENAI_API_KEY`: Your OpenAI API key
   - Or for WatsonX:
     - `WATSONX_API_KEY`: Your WatsonX API key
     - `WATSONX_PROJECT_ID`: Your WatsonX project ID
     - `WATSONX_URL`: WatsonX URL 
+  - Or for Ollama:
+    - `OLLAMA_API_KEY`: Your Ollama API key
 
 ## Usage
 
@@ -57,6 +60,11 @@ multi-agent-generator "I need a research assistant that summarizes papers and an
 Using WatsonX instead:
 ```bash
 multi-agent-generator "I need a research assistant that summarizes papers and answers questions" --framework crewai --provider watsonx
+```
+
+Using Ollama instead:
+```bash
+multi-agent-generator "I need a research assistant that summarizes papers and answers questions" --framework crewai --provider ollama
 ```
 
 Save output to a file:
@@ -76,7 +84,7 @@ streamlit run -m multi_agent_generator.streamlit_app.app
 ```
 
 The UI allows you to:
-- Choose between OpenAI and WatsonX
+- Choose between OpenAI, WatsonX, and Ollama
 - Select which framework to use
 - Enter your requirements in plain English
 - Visualize the agent configuration
@@ -129,6 +137,10 @@ OpenAI's GPT models provide state-of-the-art natural language understanding and 
 ### IBM WatsonX
 
 IBM WatsonX provides enterprise-grade access to foundation models with IBM's security and governance features. The default model used is Llama-3-70B-Instruct.
+
+### Ollama
+
+Ollama's models provide advanced capabilities for natural language understanding and code generation. The default model used is Ollama-Model-ID.
 
 ## License
 

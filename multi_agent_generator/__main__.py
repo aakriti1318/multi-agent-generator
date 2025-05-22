@@ -28,7 +28,7 @@ def main():
     )
     parser.add_argument(
         "--provider",
-        choices=["openai", "watsonx"],
+        choices=["openai", "watsonx", "ollama"],
         default="openai",
         help="LLM provider to use (default: openai)"
     )
@@ -57,6 +57,12 @@ def main():
         print("Please set your WatsonX credentials using:")
         print("export WATSONX_API_KEY=your_api_key_here")
         print("export WATSONX_PROJECT_ID=your_project_id_here")
+        return
+
+    if args.provider == "ollama" and not os.getenv("OLLAMA_API_KEY"):
+        print("Error: OLLAMA_API_KEY environment variable not found.")
+        print("Please set your Ollama API key using:")
+        print("export OLLAMA_API_KEY=your_api_key_here")
         return
     
     # Analyze the prompt with specified provider

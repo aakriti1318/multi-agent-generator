@@ -277,6 +277,119 @@ class WatsonXModelInference(BaseModelInference):
         return [self.generate_text(prompt, guardrails)]
 
 
+class OllamaModelInference(BaseModelInference):
+    """
+    Wrapper for Ollama model inference.
+    
+    This class provides a simplified interface for text generation
+    using Ollama's models.
+    """
+    
+    def __init__(
+        self,
+        model_id: str,
+        params: Dict[str, Any],
+        credentials: Optional[Dict[str, str]] = None,
+        project_id: Optional[str] = None  # Not used for Ollama, kept for API compatibility
+    ):
+        """
+        Initialize the Ollama client.
+        
+        Args:
+            model_id: The ID of the model to use
+            params: Generation parameters (like max_tokens, temperature, etc.)
+            credentials: Optional API credentials
+            project_id: Not used for Ollama, kept for API compatibility
+        """
+        try:
+            from ollama import Ollama
+        except ImportError:
+            raise ImportError("Ollama package is not installed. Install it with 'pip install ollama'")
+            
+        self.model_id = model_id
+        self.params = params
+        
+        # Get API key from credentials or environment
+        api_key = None
+        if credentials and "api_key" in credentials:
+            api_key = credentials["api_key"]
+        else:
+            api_key = os.getenv("OLLAMA_API_KEY")
+            
+        self.client = Ollama(api_key=api_key)
+    
+    def generate_text(
+        self, 
+        prompt: str, 
+        guardrails: bool = False  # Kept for API compatibility
+    ) -> str:
+        """
+        Generate text based on the prompt.
+        
+        Args:
+            prompt: The text prompt to generate from
+            guardrails: Not used for Ollama, kept for API compatibility
+            
+        Returns:
+            The generated text response
+        """
+        try:
+            # Generate text using the model
+            response = self.client.generate(
+                model=self.model_id,
+                prompt=prompt,
+                max_tokens=self.params.get("max_new_tokens", 1000),
+                temperature=self.params.get("temperature", 0.7),
+                top_p=self.params.get("top_p", 1.0),
+                frequency_penalty=self.params.get("frequency_penalty", 0.0),
+                presence_penalty=self.params.get("presence_penalty", 0.0)
+            )
+            
+            return response['choices'][0]['text']
+            
+        except Exception as e:
+            print(f"Error in text generation: {e}")
+            return f"Error generating text: {str(e)}"
+    
+    def generate_text_stream(
+        self, 
+        prompt: str, 
+        guardrails: bool = False  # Kept for API compatibility
+    ) -> List[str]:
+        """
+        Generate text in a streaming fashion.
+        
+        Args:
+            prompt: The text prompt to generate from
+            guardrails: Not used for Ollama, kept for API compatibility
+            
+        Returns:
+            List of text chunks from the stream
+        """
+        try:
+            # Generate text using the model with streaming
+            responses = []
+            stream = self.client.generate_stream(
+                model=self.model_id,
+                prompt=prompt,
+                max_tokens=self.params.get("max_new_tokens", 1000),
+                temperature=self.params.get("temperature", 0.7),
+                top_p=self.params.get("top_p", 1.0),
+                frequency_penalty=self.params.get("frequency_penalty", 0.0),
+                presence_penalty=self.params.get("presence_penalty", 0.0)
+            )
+            
+            for chunk in stream:
+                if chunk['choices'][0]['text']:
+                    responses.append(chunk['choices'][0]['text'])
+            
+            return responses
+            
+        except Exception as e:
+            print(f"Error in streaming text generation: {e}")
+            return [f"Error generating text: {str(e)}"]
+
+
 def create_model_inference(
     provider: str,
     model_id: str,
@@ -288,7 +401,7 @@ def create_model_inference(
     Factory function to create the appropriate model inference instance.
     
     Args:
-        provider: The LLM provider ("openai" or "watsonx")
+        provider: The LLM provider ("openai", "watsonx", or "ollama")
         model_id: The ID of the model to use
         params: Generation parameters
         credentials: Optional API credentials
@@ -310,5 +423,11 @@ def create_model_inference(
             credentials=credentials,
             project_id=project_id
         )
+    elif provider.lower() == "ollama":
+        return OllamaModelInference(
+            model_id=model_id,
+            params=params,
+            credentials=credentials
+        )
     else:
-        raise ValueError(f"Unsupported provider: {provider}. Use 'openai' or 'watsonx'.")
+        raise ValueError(f"Unsupported provider: {provider}. Use 'openai', 'watsonx', or 'ollama'.")
