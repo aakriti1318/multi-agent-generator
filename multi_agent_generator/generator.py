@@ -16,7 +16,7 @@ class AgentGenerator:
         Initialize the generator with the specified provider.
         
         Args:
-            provider: The LLM provider to use ("openai" or "watsonx")
+            provider: The LLM provider to use ("openai", "watsonx", "ollama")
         """
         self.provider = provider.lower()
         
@@ -50,16 +50,28 @@ class AgentGenerator:
                 "repetition_penalty": 1
             }
         }
+        
+        # Ollama configuration
+        self.ollama_config = {
+            "model_id": "ollama-model-id",
+            "parameters": {
+                "max_new_tokens": 1000,  # Max tokens to generate
+                "temperature": 0.7,      # Creativity level
+                "top_p": 0.95,           # Nucleus sampling
+                "frequency_penalty": 0,  # Discourage repetition
+                "presence_penalty": 0    # Discourage topic repetition
+            }
+        }
     
     def set_provider(self, provider: str):
         """
         Change the LLM provider.
         
         Args:
-            provider: The LLM provider to use ("openai" or "watsonx")
+            provider: The LLM provider to use ("openai", "watsonx", "ollama")
         """
-        if provider.lower() not in ["openai", "watsonx"]:
-            raise ValueError(f"Unsupported provider: {provider}. Use 'openai' or 'watsonx'.")
+        if provider.lower() not in ["openai", "watsonx", "ollama"]:
+            raise ValueError(f"Unsupported provider: {provider}. Use 'openai', 'watsonx', or 'ollama'.")
             
         self.provider = provider.lower()
         # Reset model so it will be re-initialized with the new provider
@@ -133,6 +145,30 @@ class AgentGenerator:
                 credentials=credentials,
                 project_id=project_id
             )
+        
+        elif self.provider == "ollama":
+            # Get API key from environment
+            api_key = os.getenv("OLLAMA_API_KEY")
+            
+            if not api_key and hasattr(st, 'session_state') and 'ollama_api_key' in st.session_state:
+                api_key = st.session_state.ollama_api_key
+                
+            if not api_key and st is not None:
+                st.warning("Ollama API Key not found in environment. Please enter it below.")
+                api_key = st.text_input("Enter Ollama API Key:", type="password", key="ollama_key_input")
+                if api_key:
+                    st.session_state.ollama_api_key = api_key
+                else:
+                    st.stop()
+            
+            credentials = {"api_key": api_key}
+            
+            self.model = create_model_inference(
+                provider="ollama",
+                model_id=self.ollama_config["model_id"],
+                params=self.ollama_config["parameters"],
+                credentials=credentials
+            )
     
     def analyze_prompt(self, user_prompt: str, framework: str) -> Dict[str, Any]:
         """
@@ -166,7 +202,7 @@ class AgentGenerator:
             json_start = response.find('{')
             json_end = response.rfind('}') + 1
             
-            if json_start >= 0 and json_end > json_start:
+            if (json_start >= 0 and json_end > json_start):
                 json_str = response[json_start:json_end]
                 return json.loads(json_str)
             else:
