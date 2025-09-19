@@ -152,12 +152,12 @@ class AgentGenerator:
         try:
             # Format prompt for LLM
             formatted_prompt = f"""<|begin_of_text|>
-<|system|>
-{system_prompt}
-<|user|>
-{user_prompt}
-<|assistant|>
-"""
+                                    <|system|>
+                                    {system_prompt}
+                                    <|user|>
+                                    {user_prompt}
+                                    <|assistant|>
+                                """
             
             # Generate response using the model
             response = self.model.generate_text(prompt=formatted_prompt)
