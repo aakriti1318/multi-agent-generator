@@ -336,7 +336,7 @@ class AgentGenerator:
         Returns:
             A default configuration dictionary
         """
-        if framework == "crewai":
+        if framework == "crewai" or framework == "crewai-flow":
             return {
                 "process": "sequential",  # Default to sequential
                 "agents": [
@@ -376,47 +376,6 @@ class AgentGenerator:
                     }
                 ]
             }
-        elif framework == "crewai-flow":
-            return {
-                "process": "sequential",  # Default to sequential
-                "agents": [
-                    {
-                        "name": "research_specialist",
-                        "role": "Research Specialist",
-                        "goal": "Conduct thorough research and gather information",
-                        "backstory": "Expert researcher with years of experience in data gathering and analysis",
-                        "tools": ["search_tool", "web_scraper"],
-                        "verbose": True,
-                        "allow_delegation": False
-                    },
-                    {
-                        "name": "content_writer",
-                        "role": "Content Writer",
-                        "goal": "Create clear and comprehensive written content",
-                        "backstory": "Professional writer skilled in creating engaging and informative content",
-                        "tools": ["writing_tool", "grammar_checker"],
-                        "verbose": True,
-                        "allow_delegation": False
-                    }
-                ],
-                "tasks": [
-                    {
-                        "name": "research_task",
-                        "description": "Gather information and conduct research on the given topic",
-                        "tools": ["search_tool"],
-                        "agent": "research_specialist",
-                        "expected_output": "Comprehensive research findings and data"
-                    },
-                    {
-                        "name": "writing_task",
-                        "description": "Create written content based on research findings",
-                        "tools": ["writing_tool"],
-                        "agent": "content_writer",
-                        "expected_output": "Well-written content document"
-                    }
-                ]
-            }
-        
         elif framework == "langgraph":
             return {
                 "agents": [{
