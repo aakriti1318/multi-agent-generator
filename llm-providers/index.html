@@ -75,11 +75,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#llm-providers" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -607,21 +602,6 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    LLM Providers
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -634,43 +614,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#supported-providers" class="md-nav__link">
-    <span class="md-ellipsis">
-      Supported Providers
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configuration
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -715,34 +658,6 @@
   
   
   
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#supported-providers" class="md-nav__link">
-    <span class="md-ellipsis">
-      Supported Providers
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configuration
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -761,23 +676,9 @@
   
 
 
-<h1 id="llm-providers">LLM Providers</h1>
-<p>Multi-Agent Generator is <strong>provider-agnostic</strong> via LiteLLM.</p>
-<hr />
-<h2 id="supported-providers">Supported Providers</h2>
-<ul>
-<li><strong>OpenAI</strong> (<code>--provider openai</code>)</li>
-<li><strong>IBM WatsonX</strong> (<code>--provider watsonx</code>)</li>
-<li><strong>Ollama</strong> (<code>--provider ollama</code>)</li>
-<li><strong>Anthropic</strong> (<code>--provider anthropic</code>)</li>
-<li>Many more supported by LiteLLM</li>
-</ul>
-<hr />
-<h2 id="configuration">Configuration</h2>
-<p>You can override defaults with:</p>
-<pre><code class="language-bash">export DEFAULT_MODEL=&quot;gpt-4o-mini&quot;
-</code></pre>
-<p>LiteLLM routes requests to the right provider automatically.</p>
+  <h1>LLM Providers</h1>
+
+
 
 
 
