@@ -59,9 +59,12 @@ def main():
     config = generator.analyze_prompt(args.prompt, args.framework)
     
     # Add process type to config for CrewAI frameworks
-    if args.framework in ["crewai", "crewai-flow"]:
+    if args.framework == "crewai":
         config["process"] = args.process
         print(f"Using {args.process} process for CrewAI...")
+    elif args.framework == "crewai-flow":
+        config["process"] = args.process
+        print(f"Using {args.process} process for CrewAI FLOW...")
     
     # Generate code based on the framework
     print(f"Generating {args.framework} code...")
