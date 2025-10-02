@@ -20,4 +20,6 @@ pip install multi-agent-generator[dev]
   * `OLLAMA_URL` (for Ollama)
   * Or a generic `API_KEY` / `API_BASE` if supported by LiteLLM
 
+* Be aware `Agno` only works with `OPENAI_API_KEY` without tools for Now, and will be expanded for further API's and tools in the future.
+
 > ⚡ You can freely switch providers using `--provider` in CLI or by setting environment variables.

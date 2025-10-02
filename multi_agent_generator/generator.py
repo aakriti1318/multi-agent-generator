@@ -41,27 +41,28 @@ class AgentGenerator:
         if self.model is not None:
             return
 
-        # Pick sensible defaults per provider
         default_models = {
             "openai": "gpt-4o-mini",
             "watsonx": "watsonx/meta-llama/llama-3-3-70b-instruct",
-            "ollama": "ollama/llama3.2:3b"
+            "ollama": "ollama/llama3.2:3b",
         }
         model_name = default_models.get(self.provider, self.provider)
-
-        # Allow overriding via environment variable DEFAULT_MODEL
         model_name = os.getenv("DEFAULT_MODEL", model_name)
 
-        self.model = ModelInference(
+        common_kwargs = dict(
             model=model_name,
             max_tokens=1000,
             temperature=0.7,
             top_p=0.95,
             frequency_penalty=0,
             presence_penalty=0,
-            project_id=os.getenv("WATSONX_PROJECT_ID")
         )
 
+        if self.provider == "watsonx":
+            self.model = ModelInference(**common_kwargs, project_id=os.getenv("WATSONX_PROJECT_ID"))
+        else:
+            self.model = ModelInference(**common_kwargs)
+            
     def analyze_prompt(self, user_prompt: str, framework: str) -> Dict[str, Any]:
         """
         Analyze a natural language prompt to generate agent configuration.
@@ -320,6 +321,46 @@ class AgentGenerator:
                 ]
             }
             """
+        elif framework == "agno":
+            return """
+            You are an expert at creating AI agents using the Agno framework. Based on the user's request,
+            suggest appropriate agents, their roles, tools, and tasks. 
+            
+            CRITICAL REQUIREMENTS:
+            1. Create specialized agents with distinct roles and expertise
+            2. ALWAYS assign the most appropriate agent to each task based on their role/expertise
+            3. Each task must have an "agent" field with the exact agent name
+            4. Match agent specialization to task requirements
+            
+            Process Types:
+            - Sequential: Tasks executed one after another in order
+            
+            Format your response as JSON with this structure:
+            {
+                "model_id": "model name (e.g., gpt-4o)",
+                "process": "sequential",
+                "agents": [
+                    {
+                        "name": "agent_name",
+                        "role": "specific specialized role",
+                        "goal": "clear specific goal",
+                        "backstory": "relevant professional backstory",
+                        "tools": ["relevant_tool1", "relevant_tool2"],
+                        "verbose": true,
+                        "allow_delegation": true/false
+                    }
+                ],
+                "tasks": [
+                    {
+                        "name": "task_name",
+                        "description": "detailed task description",
+                        "tools": ["required tools for this task"],
+                        "agent": "exact_agent_name_from_above",
+                        "expected_output": "specific expected output"
+                    }
+                ]
+            }
+            """
         else:
             return """
             You are an expert at creating AI research assistants. Based on the user's request,
@@ -483,6 +524,47 @@ class AgentGenerator:
                     ],
                     "final_answer": "Here are the latest AI papers..."
                 }]
+            }
+        elif framework == "agno":
+            return {
+                "model_id": "gpt-4o",
+                "process": "sequential",  # Default to sequential
+                "agents": [
+                    {
+                        "name": "research_specialist",
+                        "role": "Research Specialist",
+                        "goal": "Conduct thorough research and gather information",
+                        "backstory": "Expert researcher with years of experience in data gathering and analysis",
+                        "tools": ["search_tool", "web_scraper"],
+                        "verbose": True,
+                        "allow_delegation": False
+                    },
+                    {
+                        "name": "content_writer",
+                        "role": "Content Writer",
+                        "goal": "Create clear and comprehensive written content",
+                        "backstory": "Professional writer skilled in creating engaging and informative content",
+                        "tools": ["writing_tool", "grammar_checker"],
+                        "verbose": True,
+                        "allow_delegation": False
+                    }
+                ],
+                "tasks": [
+                    {
+                        "name": "research_task",
+                        "description": "Gather information and conduct research on the given topic",
+                        "tools": ["search_tool"],
+                        "agent": "research_specialist",
+                        "expected_output": "Comprehensive research findings and data"
+                    },
+                    {
+                        "name": "writing_task",
+                        "description": "Create written content based on research findings",
+                        "tools": ["writing_tool"],
+                        "agent": "content_writer",
+                        "expected_output": "Well-written content document"
+                    }
+                ]
             }
 
         else:
