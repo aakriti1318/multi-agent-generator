@@ -4,7 +4,6 @@ Command line interface for multi-agent-generator.
 """
 import argparse
 import json
-import os
 from dotenv import load_dotenv
 from .generator import AgentGenerator
 from .frameworks import (

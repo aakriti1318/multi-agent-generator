@@ -1,14 +1,9 @@
-from typing import Dict, Any, List
-from langchain_core.tools import BaseTool
-from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
-from langchain_core.output_parsers import StrOutputParser
-from langchain_openai import ChatOpenAI
-from langchain.agents import create_react_agent, AgentExecutor
+# multi_agent_generator/frameworks/react_generator.py
+"""
+Generator for ReAct code.
+"""
+from typing import Dict, Any
 
-
-# ---------------------------
-# Classic ReAct (AgentExecutor)
-# ---------------------------
 def create_react_code(config: Dict[str, Any]) -> str:
     code = """from langchain_core.tools import BaseTool
 from langchain_core.prompts import ChatPromptTemplate
@@ -81,9 +76,9 @@ if __name__ == "__main__":
 """
     return code
 
-# ---------------------------
-# LCEL-based ReAct (future-proof)
-# ---------------------------
+
+# LCEL-based ReAct code generator
+
 def create_react_lcel_code(config: Dict[str, Any]) -> str:
     code = """from typing import Dict, Any, List
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
