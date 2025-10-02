@@ -12,6 +12,7 @@ from multi_agent_generator.frameworks.crewai_generator import create_crewai_code
 from multi_agent_generator.frameworks.langgraph_generator import create_langgraph_code
 from multi_agent_generator.frameworks.react_generator import create_react_code
 from multi_agent_generator.frameworks.crewai_flow_generator import create_crewai_flow_code
+from multi_agent_generator.frameworks.agno_generator import create_agno_code
 
 # Load environment variables
 load_dotenv()
@@ -26,6 +27,8 @@ def create_code_block(config, framework):
         return create_langgraph_code(config)
     elif framework == "react":
         return create_react_code(config)
+    elif framework == "agno":
+        return create_agno_code(config)
     else:
         return "# Invalid framework"
 
@@ -133,12 +136,13 @@ def main():
     st.sidebar.title("🔄 Framework Selection")
     framework = st.sidebar.radio(
         "Choose a framework:",
-        ["crewai", "crewai-flow", "langgraph", "react"],
+        ["crewai", "crewai-flow", "langgraph", "react", "agno"],
         format_func=lambda x: {
             "crewai": "CrewAI",
             "crewai-flow": "CrewAI Flow",
             "langgraph": "LangGraph",
-            "react": "ReAct Framework"
+            "react": "ReAct Framework",
+            "agno": "Agno Framework"
         }[x],
         key="framework_radio"
     )
@@ -164,6 +168,11 @@ def main():
         **ReAct** (Reasoning + Acting) is a framework that combines reasoning and action in LLM agents.
         It prompts the model to generate both reasoning traces and task-specific actions in an interleaved manner, 
         creating a synergy between the two that leads to improved performance.
+        """,
+        "agno": """
+        **Agno** is a framework for building and managing agent-based applications.
+        It provides a way to define agents, their goals, and the tasks they need to accomplish,
+        along with tools for coordinating their actions and sharing information.
         """
     }
     
@@ -215,6 +224,15 @@ def main():
                 
             if not api_key_missing:
                 with st.spinner(f"Generating your {framework} code using {model_provider}..."):
+                    
+                    if model_provider == "OpenAI" and st.session_state.openai_api_key:
+                        os.environ["OPENAI_API_KEY"] = st.session_state.openai_api_key
+                    elif model_provider == "WatsonX":
+                        if st.session_state.watsonx_api_key:
+                            os.environ["WATSONX_API_KEY"] = st.session_state.watsonx_api_key
+                        if st.session_state.watsonx_project_id:
+                            os.environ["WATSONX_PROJECT_ID"] = st.session_state.watsonx_project_id
+                            
                     # Initialize generator with selected provider
                     generator = AgentGenerator(provider=model_provider.lower())
                     
@@ -296,6 +314,14 @@ def main():
             - Define clear node responsibilities
             - Consider conditional routing between nodes
             - Think about how state is passed between nodes
+            """)
+        elif framework == "agno":
+            st.info("""
+            **Agno Tips:**
+            - Define clear roles and goals for each agent
+            - Assign tasks to appropriate agents
+            - Utilize tools effectively for task completion
+            - Coordinate agent interactions through the Team
             """)
         else:  # react
             st.info("""
@@ -490,7 +516,23 @@ class AgentState(BaseModel):
                             st.write(f"**Action:** {example['action']}")
                             st.write(f"**Observation:** {example['observation']}")
                             st.write(f"**Final Answer:** {example['final_answer']}")
-        
+            
+            # Agno framework display
+            elif current_framework == "agno":
+                st.subheader("Agents")
+                for agent in st.session_state.config.get("agents", []):
+                    with st.expander(f"🤖 {agent.get('name','agent')}", expanded=True):
+                        st.write(f"**Role:** {agent.get('role','')}")
+                        if agent.get("goal"): st.write(f"**Goal:** {agent['goal']}")
+                        if agent.get("backstory"): st.write(f"**Backstory:** {agent['backstory']}")
+
+                st.subheader("Tasks")
+                for task in st.session_state.config.get("tasks", []):
+                    with st.expander(f"📋 {task.get('name','task')}", expanded=True):
+                        st.write(f"**Description:** {task.get('description','')}")
+                        st.write(f"**Expected Output:** {task.get('expected_output','')}")
+                        st.write(f"**Assigned to:** {task.get('agent','')}")
+
         with tab2:
             # Display code with copy button and syntax highlighting
             st.code(st.session_state.code, language="python")

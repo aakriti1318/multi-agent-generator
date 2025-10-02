@@ -117,3 +117,46 @@ def create_crewai_code(config: Dict[str, Any]) -> str:
     code += "    result = run_workflow(\"Your query here\")\n"
     code += "    print(result)\n"
     return code 
+
+if __name__ == "__main__":
+    # Example configuration for testing
+    example_config = {
+        "process": "sequential",
+        "agents": [
+            {
+                "name": "Researcher",
+                "role": "Conducts research on given topics.",
+                "goal": "Find relevant information.",
+                "backstory": "An expert researcher with access to various databases.",
+                "verbose": True,
+                "allow_delegation": False,
+                "tools": ["SearchEngine", "DatabaseAccess"]
+            },
+            {
+                "name": "Writer",
+                "role": "Writes articles based on research.",
+                "goal": "Produce well-written content.",
+                "backstory": "A professional writer with a knack for storytelling.",
+                "verbose": True,
+                "allow_delegation": False,
+                "tools": ["GrammarChecker", "PlagiarismChecker"]
+            }
+        ],
+        "tasks": [
+            {
+                "name": "Research Task",
+                "description": "Research the topic of AI in healthcare.",
+                "agent": "Researcher",
+                "expected_output": "A summary of findings."
+            },
+            {
+                "name": "Writing Task",
+                "description": "Write an article based on the research findings.",
+                # No agent specified, should auto-assign
+                "expected_output": "A complete article."
+            }
+        ]
+    }
+    
+    generated_code = create_crewai_code(example_config)
+    print(generated_code)

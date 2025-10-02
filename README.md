@@ -15,6 +15,7 @@ Powered by [LiteLLM](https://docs.litellm.ai/) for **provider-agnostic support**
   * **CrewAI**: Structured workflows for multi-agent collaboration
   * **CrewAI Flow**: Event-driven workflows with state management
   * **LangGraph**: LangChain’s framework for stateful, multi-actor applications
+  * **Agno**: Agno framework for Agents Team orchestration
   * **ReAct (classic)**: Reasoning + Acting agents using `AgentExecutor`
   * **ReAct (LCEL)**: Future-proof ReAct built with LangChain Expression Language (LCEL)
 
@@ -58,6 +59,8 @@ pip install multi-agent-generator
   * `OLLAMA_URL` (for Ollama)
   * Or a generic `API_KEY` / `API_BASE` if supported by LiteLLM
 
+* Be aware `Agno` only works with `OPENAI_API_KEY` without tools for Now, and will be expanded for further API's and tools in the future.
+
 > ⚡ You can freely switch providers using `--provider` in CLI or by setting environment variables.
 
 ---
@@ -77,7 +80,11 @@ Using WatsonX instead:
 ```bash
 multi-agent-generator "I need a research assistant that summarizes papers and answers questions" --framework crewai --provider watsonx
 ```
+Using Agno:
 
+```bash
+multi_agent_generator "build a researcher and writer" --framework agno --provider openai --output agno.py --format code
+```
 Using Ollama locally:
 
 ```bash
@@ -133,6 +140,10 @@ Event-driven workflows with sequential, parallel, or conditional execution.
 ### LangGraph
 
 Directed graph of agents/tools with stateful execution.
+
+### Agno
+
+Role-playing Team orchestration AI agents with goals, roles, backstories and instructions.
 
 ### ReAct (classic)
 

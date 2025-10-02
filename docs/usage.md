@@ -14,6 +14,11 @@ Using WatsonX instead:
 multi-agent-generator "I need a research assistant that summarizes papers and answers questions" --framework crewai --provider watsonx
 ```
 
+Try Agno:
+```bash
+multi_agent_generator "build a researcher and writer" --framework agno --provider openai --output agno.py --format code
+```
+
 Using Ollama locally:
 
 ```bash

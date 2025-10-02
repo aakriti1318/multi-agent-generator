@@ -140,3 +140,45 @@ def create_crewai_flow_code(config: Dict[str, Any]) -> str:
     code += "    print(result)\n"
     
     return code
+
+if __name__ == "__main__":
+    # Example configuration for testing
+    example_config = {
+        "agents": [
+            {
+                "name": "Researcher",
+                "role": "Conducts research",
+                "goal": "Find relevant information",
+                "backstory": "Experienced in data gathering",
+                "verbose": True,
+                "allow_delegation": False,
+                "tools": []
+            },
+            {
+                "name": "Writer",
+                "role": "Writes reports",
+                "goal": "Create clear and concise reports",
+                "backstory": "Skilled in technical writing",
+                "verbose": True,
+                "allow_delegation": False,
+                "tools": []
+            }
+        ],
+        "tasks": [
+            {
+                "name": "Gather Information",
+                "description": "Collect data on the given topic.",
+                "agent": "Researcher",
+                "expected_output": "A summary of findings."
+            },
+            {
+                "name": "Draft Report",
+                "description": "Write a report based on the gathered information.",
+                "agent": "Writer",
+                "expected_output": "A well-structured report."
+            }
+        ]
+    }
+    
+    generated_code = create_crewai_flow_code(example_config)
+    print(generated_code)

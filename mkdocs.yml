@@ -1,5 +1,5 @@
 site_name: Multi-Agent Generator
-site_description: "Generate multi-agent AI workflows from plain English using CrewAI, LangGraph, and ReAct. Powered by LiteLLM."
+site_description: "Generate multi-agent AI workflows from plain English using CrewAI, LangGraph, Agno, and ReAct. Powered by LiteLLM."
 site_url: https://aakriti1318.github.io/multi-agent-generator/
 repo_url: https://github.com/aakriti1318/multi-agent-generator
 repo_name: aakriti1318/multi-agent-generator
@@ -27,5 +27,6 @@ nav:
       - LangGraph: frameworks/langgraph.md
       - ReAct (Classic): frameworks/react.md
       - ReAct (LCEL): frameworks/react-lcel.md
+      - Agno: frameworks/agno.md
   - LLM Providers: llm-providers.md
   - Examples: examples.md
