@@ -55,6 +55,7 @@ pip install multi-agent-generator
 
   * `OPENAI_API_KEY` (for OpenAI)
   * `WATSONX_API_KEY`, `WATSONX_PROJECT_ID`, `WATSONX_URL` (for WatsonX)
+  * `GROQ_API_KEY` (for Groq)
   * `OLLAMA_URL` (for Ollama)
   * Or a generic `API_KEY` / `API_BASE` if supported by LiteLLM
 
@@ -82,6 +83,12 @@ Using Ollama locally:
 
 ```bash
 multi-agent-generator "Build me a ReAct assistant for customer support" --framework react-lcel --provider ollama
+```
+
+Using Grqo
+
+```bash
+multi-agent-generator "I need a team to analyze customer data" --framework langgraph --provider groq
 ```
 
 Save output to a file:
@@ -157,6 +164,10 @@ Enterprise-grade access to Llama and other foundation models (default: `llama-3-
 ### Ollama
 
 Run Llama and other models locally.
+
+### Groq
+High-performance models optimized for speed and cost.
+(default: `llama-3.3-70b-versatile-instruct`)
 
 ### Anthropic
 
