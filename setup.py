@@ -19,11 +19,12 @@ REQUIREMENTS = [
     "langgraph>=0.0.16",
     "python-dotenv>=1.0.0",
     "pydantic>=2.0.0",
+    "agno==1.8.4",
 ]
 
 setup(
     name="multi-agent-generator",
-    version="0.3.0",
+    version="0.4.0",
     description="Generate multi-agent AI teams from plain English using LiteLLM-compatible providers",
     long_description=long_description,
     long_description_content_type="text/markdown",

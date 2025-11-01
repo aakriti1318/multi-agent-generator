@@ -1,8 +1,8 @@
-from crewai import Agent as CrewAgent, Task as CrewTask, Crew, Process
-from typing import List, Dict, Any, Optional
-import os
-import json
-import time
+# multi_agent_generator/frameworks/crewai_generator.py
+"""
+Generator for CrewAI code.
+"""
+from typing import Dict, Any
 
 def _sanitize_var_name(name: str) -> str:
     """Convert agent/task name to a valid Python variable name."""

@@ -4,14 +4,14 @@ Command line interface for multi-agent-generator.
 """
 import argparse
 import json
-import os
 from dotenv import load_dotenv
 from .generator import AgentGenerator
 from .frameworks import (
     create_crewai_code,
     create_crewai_flow_code,
     create_langgraph_code,
-    create_react_code
+    create_react_code,
+    create_agno_code
 )
 
 # Load environment variables from .env file if present
@@ -24,7 +24,7 @@ def main():
     parser.add_argument("prompt", help="Plain English description of what you need")
     parser.add_argument(
         "--framework", 
-        choices=["crewai", "crewai-flow", "langgraph", "react", "react-lcel"], 
+        choices=["crewai", "crewai-flow", "langgraph", "react", "react-lcel", "agno"], 
         default="crewai",
         help="Agent framework to use (default: crewai)"
     )
@@ -76,6 +76,8 @@ def main():
     elif args.framework == "react-lcel":
         from .frameworks.react_generator import create_react_lcel_code
         code = create_react_lcel_code(config)
+    elif args.framework == "agno":
+        code = create_agno_code(config)
 
     else:
         print(f"Unsupported framework: {args.framework}")
