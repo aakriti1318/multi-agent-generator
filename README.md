@@ -4,7 +4,7 @@
 **PyPi Link** - [Multi-agent-generator](https://pypi.org/project/multi-agent-generator/)
 
 A powerful tool that transforms plain English instructions into fully configured multi-agent AI teams — no scripting, no complexity.
-Powered by [LiteLLM](https://docs.litellm.ai/) for **provider-agnostic support** (OpenAI, WatsonX, Ollama, Anthropic, etc.) with both a **CLI** and an optional **Streamlit UI**.
+Powered by [LiteLLM](https://docs.litellm.ai/) for **provider-agnostic support** (OpenAI, WatsonX, Ollama, Anthropic, **Groq**, **AIML API**, etc.) with both a **CLI** and an optional **Streamlit UI**.
 
 ---
 
@@ -21,7 +21,7 @@ Powered by [LiteLLM](https://docs.litellm.ai/) for **provider-agnostic support**
 
 * **Provider-Agnostic Inference** via LiteLLM:
 
-  * Supports OpenAI, IBM WatsonX, Ollama, Anthropic, and more
+  * Supports **OpenAI**, **IBM WatsonX**, **Ollama**, **Anthropic**, **Groq**, **AIML API** and more
   * Swap providers with a single CLI flag or environment variable
 
 * **Flexible Output**:
@@ -51,12 +51,15 @@ pip install multi-agent-generator
 
 ## Prerequisites
 
-* At least one supported LLM provider (OpenAI, WatsonX, Ollama, etc.)
+* At least one supported LLM provider (**OpenAI**, **WatsonX**, **Ollama**, **Groq**, **AIML API**, etc.)
+
 * Environment variables setup:
 
   * `OPENAI_API_KEY` (for OpenAI)
   * `WATSONX_API_KEY`, `WATSONX_PROJECT_ID`, `WATSONX_URL` (for WatsonX)
   * `OLLAMA_URL` (for Ollama)
+  * `GROQ_API_KEY` (for Groq)
+  * `AIML_API_KEY`, `AIML_BASE_URL` (for AIML API)
   * Or a generic `API_KEY` / `API_BASE` if supported by LiteLLM
 
 * Be aware `Agno` only works with `OPENAI_API_KEY` without tools for Now, and will be expanded for further API's and tools in the future.
@@ -80,15 +83,29 @@ Using WatsonX instead:
 ```bash
 multi-agent-generator "I need a research assistant that summarizes papers and answers questions" --framework crewai --provider watsonx
 ```
+
 Using Agno:
 
 ```bash
 multi_agent_generator "build a researcher and writer" --framework agno --provider openai --output agno.py --format code
 ```
+
 Using Ollama locally:
 
 ```bash
 multi-agent-generator "Build me a ReAct assistant for customer support" --framework react-lcel --provider ollama
+```
+
+Using **Groq** for ultra-fast local inference:
+
+```bash
+multi-agent-generator "Create a LangGraph workflow for real-time summarization" --framework langgraph --provider groq
+```
+
+Using **AIML API** (custom deployments or enterprise use):
+
+```bash
+multi-agent-generator "Generate a multi-agent content creation pipeline" --framework crewai --provider aimlapi
 ```
 
 Save output to a file:
@@ -165,9 +182,17 @@ State-of-the-art GPT models (default: `gpt-4o-mini`).
 
 Enterprise-grade access to Llama and other foundation models (default: `llama-3-70b-instruct`).
 
+### Groq
+
+Blazing-fast inference with ultra-low latency — ideal for real-time pipelines and multi-agent orchestration.
+
 ### Ollama
 
 Run Llama and other models locally.
+
+### AIML API
+
+Open and flexible AI/ML inference platform supporting fine-tuned and enterprise models, deployable on **cloud, on-premise, or hybrid** environments.
 
 ### Anthropic
 

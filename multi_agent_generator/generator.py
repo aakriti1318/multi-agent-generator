@@ -45,6 +45,8 @@ class AgentGenerator:
             "openai": "gpt-4o-mini",
             "watsonx": "watsonx/meta-llama/llama-3-3-70b-instruct",
             "ollama": "ollama/llama3.2:3b",
+            "groq": "groq/llama-3.3-70b-versatile",
+            "aimlapi":"aiml/meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo"
         }
         model_name = default_models.get(self.provider, self.provider)
         model_name = os.getenv("DEFAULT_MODEL", model_name)
