@@ -44,24 +44,31 @@ def main():
         st.session_state.model_provider = 'openai'
     
     # Initialize keys in session state if not present
-    for key in ['openai_api_key', 'watsonx_api_key', 'watsonx_project_id']:
+    for key in ['openai_api_key', 'watsonx_api_key', 'watsonx_project_id','groq_api_key', "aimlapi_api_key"]:
         if key not in st.session_state:
             st.session_state[key] = ''
     
     # Sidebar for LLM provider selection and API keys
     st.sidebar.title("🤖 LLM Provider Settings")
+    model_provider_list = ["OpenAI", "WatsonX", "Groq", "AimlAPI"]
+    provider_index = model_provider_list.index(st.session_state.model_provider.capitalize()) if st.session_state.model_provider.capitalize() in model_provider_list else 0
     model_provider = st.sidebar.radio(
         "Choose LLM Provider:",
-        ["OpenAI", "WatsonX"],
-        index=0 if st.session_state.model_provider == 'openai' else 1,
+        model_provider_list,
+        index=provider_index,
         key="provider_radio"
     )
+
     
     st.session_state.model_provider = model_provider.lower()
     
     # Display provider badge
     if model_provider == "OpenAI":
         st.sidebar.markdown("![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white)")
+    elif model_provider == "Groq":
+        st.sidebar.markdown("![Groq](https://img.shields.io/badge/Groq-000000?style=for-the-badge&logo=groq&logoColor=white)")
+    elif model_provider == "AimlAPI":
+        st.sidebar.markdown("![AimlAPI](https://img.shields.io/badge/AimlAPI-FF6F61?style=for-the-badge&logo=aimlapi&logoColor=white)")
     else:
         st.sidebar.markdown("![IBM](https://img.shields.io/badge/IBM-052FAD?style=for-the-badge&logo=ibm&logoColor=white)")
     
@@ -87,6 +94,42 @@ def main():
                     )
                     if api_key:
                         st.session_state.openai_api_key = api_key
+                        st.success("API Key saved for this session.")
+        elif model_provider == "Groq":
+            groq_api_key_env = os.getenv("GROQ_API_KEY", "")
+            if groq_api_key_env:
+                st.success("Groq API Key found in environment variables.")
+                st.session_state.groq_api_key = groq_api_key_env
+            else:
+                if st.session_state.groq_api_key:
+                    st.success("Groq API Key set for this session.")
+                else:
+                    api_key = st.text_input(
+                        "Enter Groq API Key:", 
+                        value=st.session_state.groq_api_key,
+                        type="password",
+                        key="groq_key_input"
+                    )
+                    if api_key:
+                        st.session_state.groq_api_key = api_key
+                        st.success("API Key saved for this session.")
+        elif model_provider == "AimlAPI":
+            aimlapi_api_key_env = os.getenv("AIMLAPI_API_KEY", "")
+            if aimlapi_api_key_env:
+                st.success("AimlAPI API Key found in environment variables.")
+                st.session_state.aimlapi_api_key = aimlapi_api_key_env
+            else:
+                if st.session_state.aimlapi_api_key:
+                    st.success("AimlAPI API Key set for this session.")
+                else:
+                    api_key = st.text_input(
+                        "Enter AimlAPI API Key:", 
+                        value=st.session_state.aimlapi_api_key,
+                        type="password",
+                        key="aimlapi_key_input"
+                    )
+                    if api_key:
+                        st.session_state.aimlapi_api_key = api_key
                         st.success("API Key saved for this session.")
                         
         else:  # WatsonX
@@ -126,12 +169,18 @@ def main():
     # Show model information
     with st.sidebar.expander("ℹ️ Model Information", expanded=False):
         if model_provider == "OpenAI":
-            st.write("**Model**: GPT-4.1-mini")
-            st.write("OpenAI's models provide advanced capabilities for natural language understanding and code generation.")
+            st.write("**Model:** GPT-4.1-mini")
+            st.write("OpenAI’s models provide advanced reasoning and code generation capabilities.")
+        elif model_provider == "Groq":
+            st.write("**Model:** Llama-3-70B via Groq API")
+            st.write("Groq offers lightning-fast inference on open-weight models like Llama 3 and Mistral using their accelerator platform.")
+        elif model_provider == "AimlAPI":
+            st.write("**Model:** Meta-Llama-3.1-405B-Instruct (via AimlAPI)")
+            st.write("AimlAPI provides scalable access to large language models with optimized performance for various applications.")
         else:
-            st.write("**Model**: Llama-3-70B-Instruct (via WatsonX)")
-            st.write("IBM WatsonX provides enterprise-grade access to Llama and other foundation models with IBM's security and governance features.")
-    
+            st.write("**Model:** Llama-3-70B-Instruct (via WatsonX)")
+            st.write("IBM WatsonX provides enterprise-grade access to Llama and other foundation models with IBM’s security and governance features.")
+
     # Framework selection
     st.sidebar.title("🔄 Framework Selection")
     framework = st.sidebar.radio(
@@ -218,6 +267,12 @@ def main():
             if model_provider == "OpenAI" and not st.session_state.openai_api_key:
                 st.error("Please set your OpenAI API Key in the sidebar")
                 api_key_missing = True
+            elif model_provider == "Groq" and not st.session_state.groq_api_key:
+                st.error("Please set your Groq API Key in the sidebar")
+                api_key_missing = True
+            elif model_provider == "AimlAPI" and not st.session_state.aimlapi_api_key:
+                st.error("Please set your AimlAPI API Key in the sidebar")
+                api_key_missing = True
             elif model_provider == "WatsonX" and (not st.session_state.watsonx_api_key or not st.session_state.watsonx_project_id):
                 st.error("Please set your WatsonX API Key and Project ID in the sidebar")
                 api_key_missing = True
@@ -227,6 +282,12 @@ def main():
                     
                     if model_provider == "OpenAI" and st.session_state.openai_api_key:
                         os.environ["OPENAI_API_KEY"] = st.session_state.openai_api_key
+                    elif model_provider == "Groq" :
+                        if st.session_state.groq_api_key:
+                            os.environ["GROQ_API_KEY"] = st.session_state.groq_api_key
+                    elif model_provider == "AimlAPI" :
+                        if st.session_state.aimlapi_api_key:
+                            os.environ["AIMLAPI_API_KEY"] = st.session_state.aimlapi_api_key
                     elif model_provider == "WatsonX":
                         if st.session_state.watsonx_api_key:
                             os.environ["WATSONX_API_KEY"] = st.session_state.watsonx_api_key
@@ -284,9 +345,14 @@ def main():
                     
                     # Add info about the model used
                     if model_provider == "OpenAI":
-                        st.info("Generated using GPT-4.1-mini")
+                        st.info("Generated using GPT-4.1-mini (OpenAI)")
+                    elif model_provider == "Groq":
+                        st.info("Generated using Llama-3-70B (Groq API)")
+                    elif model_provider == "AimlAPI":
+                        st.info("Generated using Meta-Llama-3.1-405B-Instruct (AimlAPI)")
                     else:
-                        st.info("Generated using Llama-3-70B-Instruct via WatsonX")
+                        st.info("Generated using Llama-3-70B-Instruct (WatsonX)")
+
 
     with col2:
         st.subheader("💡 Framework Tips")
@@ -335,13 +401,16 @@ def main():
         # Add provider comparison
         st.subheader("🔄 LLM Provider Comparison")
         comparison_md = """
-        | Feature | OpenAI | WatsonX |
-        | ------- | ------ | ------- |
-        | Models | GPT-4o, GPT-3.5, etc. | Llama-3, Granite, etc. |
-        | Strengths | State-of-the-art performance | Enterprise security & governance |
-        | Best for | Consumer apps, research | Enterprise deployments |
-        | Pricing | Token-based | Enterprise contracts |
-        """
+            | **Feature**          | **OpenAI**                  | **Groq**                       | **WatsonX**                 | **AIML API**                                |
+| -------------------- | --------------------------- | ------------------------------ | --------------------------- | ------------------------------------------- |
+| **Models**           | GPT-4o, GPT-3.5             | Llama-3, Mistral               | Llama-3, Granite            | Llama-2, Mistral, Custom Fine-tuned Models  |
+| **Strengths**        | Top reasoning & reliability | Ultra-fast inference           | Enterprise-grade compliance | Open architecture, customizable endpoints   |
+| **Best for**         | Research, apps              | Real-time pipelines            | Regulated industries        | Scalable AI/ML deployments and integrations |
+| **Pricing**          | Token-based                 | Usage-based (accelerator time) | Enterprise contracts        | Flexible — per-model or compute-hour based  |
+| **Deployment**       | Cloud API                   | On-device / Cloud              | IBM Cloud                   | Cloud, on-prem, or hybrid                   |
+| **Integration Ease** | High (SDKs + API)           | Medium                         | Enterprise-integrated       | High (REST/GraphQL, open adapters)          |
+"""
+
         st.markdown(comparison_md)
 
     # Display results
