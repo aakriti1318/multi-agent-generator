@@ -181,4 +181,6 @@ Use Claude models for agent generation.
 
 MIT
 
+Maintainers: **[Nabarko Roy](https://github.com/Nabarko)**
+
 Made with ❤️ If you like star the repo and share it with AI Enthusiasts.
