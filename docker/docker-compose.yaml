@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  multi-agent-gen-ui:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: multi-agent-generator-ui
+    image: multi-agent-generator-ui:latest
+    ports:
+      - "8501:8501" 
+    env_file:
+      - .env
+    develop:
+      watch:
+        - path: ../docker/Dockerfile
+          action: rebuild
