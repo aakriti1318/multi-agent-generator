@@ -1,20 +1,27 @@
 # Multi-Agent Generator
-<img width="807" height="264" alt="Screenshot 2025-08-18 at 12 59 52 PM" src="https://github.com/user-attachments/assets/90665135-80a3-43e2-82cc-ae7fa1dcc6a3" />
+<img width="807" height="264" alt="Screenshot 2025-08-18 at 12 59 52 PM" src="https://github.com/user-attachments/assets/90665135-80a3-43e2-82cc-ae7fa1dcc6a3" />
 
 **PyPi Link** - [Multi-agent-generator](https://pypi.org/project/multi-agent-generator/)
 
-A powerful tool that transforms plain English instructions into fully configured multi-agent AI teams — no scripting, no complexity.
+A powerful **low-code/no-code** tool that transforms plain English instructions into fully configured multi-agent AI teams — no scripting, no complexity.
 Powered by [LiteLLM](https://docs.litellm.ai/) for **provider-agnostic support** (OpenAI, WatsonX, Ollama, Anthropic, etc.) with both a **CLI** and an optional **Streamlit UI**.
+
+### What's New in v0.5.0
+- **Tool Auto-Discovery & Generation** - 15+ pre-built tools + natural language tool creation
+- **Multi-Agent Orchestration Patterns** - Supervisor, Debate, Voting, Pipeline, MapReduce
+- **Evaluation & Testing Framework** - Auto-generated tests + output quality metrics
 
 ---
 
 ## Features
 
+### Agent Generation
+
 * Generate agent code for multiple frameworks:
 
   * **CrewAI**: Structured workflows for multi-agent collaboration
   * **CrewAI Flow**: Event-driven workflows with state management
-  * **LangGraph**: LangChain’s framework for stateful, multi-actor applications
+  * **LangGraph**: LangChain's framework for stateful, multi-actor applications
   * **Agno**: Agno framework for Agents Team orchestration
   * **ReAct (classic)**: Reasoning + Acting agents using `AgentExecutor`
   * **ReAct (LCEL)**: Future-proof ReAct built with LangChain Expression Language (LCEL)
@@ -30,12 +37,114 @@ Powered by [LiteLLM](https://docs.litellm.ai/) for **provider-agnostic support**
   * Generate JSON configs
   * Or both combined
 
-* **Streamlit UI** (optional):
+### Tool Auto-Discovery & Generation (NEW!)
 
-  * Interactive prompt entry
-  * Framework selection
-  * Config visualization
-  * Copy or download generated code
+Create tools for your agents using plain English — no coding required:
+
+```python
+from multi_agent_generator.tools import ToolRegistry, ToolGenerator
+
+# Browse 15+ pre-built tools across 10 categories
+registry = ToolRegistry()
+web_tools = registry.get_tools_by_category("web_search")
+all_tools = registry.list_all_tools()
+
+# Generate custom tools from natural language
+generator = ToolGenerator()
+tool = generator.generate_tool("Create a tool that fetches weather data for a city")
+print(tool.code)  # Ready-to-use Python code!
+```
+
+**Pre-built Tool Categories:**
+| Category | Examples |
+|----------|----------|
+| Web Search | Google search, web scraper |
+| File Operations | Read, write, list files |
+| Data Processing | CSV parser, JSON transformer |
+| Code Execution | Python executor, shell runner |
+| API Integration | REST client, webhook handler |
+| Database | SQL query, document store |
+| Communication | Email sender, Slack notifier |
+| Math | Calculator, statistics |
+| Text Processing | Summarizer, translator |
+| Image Processing | Resizer, format converter |
+
+### Multi-Agent Orchestration Patterns (NEW!)
+
+Choose from 5 battle-tested patterns to coordinate your agents:
+
+```python
+from multi_agent_generator.orchestration import Orchestrator, PatternType
+
+orchestrator = Orchestrator()
+
+# Generate orchestrated system from description
+result = orchestrator.generate_from_description(
+    "I need a research team where a manager delegates to specialists"
+)
+print(result["code"])  # Complete LangGraph/CrewAI code!
+
+# Or configure manually
+config = orchestrator.create_pattern_config(
+    pattern_type=PatternType.SUPERVISOR,
+    agents=["researcher", "writer", "reviewer"],
+    task_description="Analyze market trends"
+)
+```
+
+**Available Patterns:**
+
+| Pattern | Use Case | How It Works |
+|---------|----------|--------------|
+| **Supervisor** | Delegating tasks to specialists | Central coordinator routes work |
+| **Debate** | Reaching consensus | Agents discuss & refine answers |
+| **Voting** | Democratic decisions | Agents vote on best response |
+| **Pipeline** | Sequential processing | Chain of specialized steps |
+| **MapReduce** | Parallel processing | Split, process, aggregate |
+
+### Evaluation & Testing Framework (NEW!)
+
+Auto-generate tests and evaluate agent quality:
+
+```python
+from multi_agent_generator.evaluation import TestGenerator, AgentEvaluator
+
+# Generate pytest test suites automatically
+test_gen = TestGenerator()
+test_suite = test_gen.generate_test_suite(
+    agent_config=your_config,
+    test_types=["unit", "integration", "e2e"]
+)
+test_suite.save("tests/")  # Ready to run with pytest!
+
+# Evaluate agent output quality
+evaluator = AgentEvaluator()
+result = evaluator.evaluate(
+    agent_output="The analysis shows...",
+    expected_output="Market trends indicate...",
+    task_description="Analyze Q4 sales data"
+)
+print(result.overall_score)  # 0.0 - 1.0
+print(result.metrics)  # relevance, completeness, coherence, accuracy
+```
+
+**Test Types:**
+- Unit Tests - Individual component testing
+- Integration Tests - Multi-agent interaction
+- End-to-End Tests - Full workflow validation
+- Performance Tests - Response time & throughput
+- Reliability Tests - Error handling & recovery
+- Quality Tests - Output quality metrics
+
+### Streamlit UI
+
+* Interactive prompt entry
+* Framework selection
+* **Tool discovery & generation** (NEW!)
+* **Orchestration pattern configuration** (NEW!)
+* **Evaluation & testing dashboard** (NEW!)
+* Config visualization
+* Copy or download generated code
 
 ---
 
@@ -61,7 +170,7 @@ pip install multi-agent-generator
 
 * Be aware `Agno` only works with `OPENAI_API_KEY` without tools for Now, and will be expanded for further API's and tools in the future.
 
-> ⚡ You can freely switch providers using `--provider` in CLI or by setting environment variables.
+> You can freely switch providers using `--provider` in CLI or by setting environment variables.
 
 ---
 
@@ -80,11 +189,13 @@ Using WatsonX instead:
 ```bash
 multi-agent-generator "I need a research assistant that summarizes papers and answers questions" --framework crewai --provider watsonx
 ```
+
 Using Agno:
 
 ```bash
 multi_agent_generator "build a researcher and writer" --framework agno --provider openai --output agno.py --format code
 ```
+
 Using Ollama locally:
 
 ```bash
@@ -102,6 +213,20 @@ Get JSON configuration only:
 ```bash
 multi-agent-generator "I need a team to analyze customer data" --framework react --format json
 ```
+
+### Streamlit UI
+
+Launch the interactive web interface:
+
+```bash
+streamlit run streamlit_app.py
+```
+
+Navigate between pages:
+- **Agent Generator** - Generate agent code from natural language
+- **Tool Discovery** - Browse and create tools
+- **Orchestration Patterns** - Configure multi-agent coordination
+- **Evaluation & Testing** - Generate tests and evaluate outputs
 
 ---
 
@@ -123,6 +248,17 @@ I need a team to create viral social media content and manage our brand presence
 
 ```
 Build me a LangGraph workflow for customer support
+```
+
+### Orchestrated Team (NEW!)
+
+```python
+from multi_agent_generator.orchestration import Orchestrator
+
+orchestrator = Orchestrator()
+result = orchestrator.generate_from_description(
+    "Build a content team with a supervisor managing writers and editors"
+)
 ```
 
 ---
@@ -173,7 +309,49 @@ Run Llama and other models locally.
 
 Use Claude models for agent generation.
 
-…and more, via LiteLLM.
+...and more, via LiteLLM.
+
+---
+
+## API Reference
+
+### Tools Module
+
+```python
+from multi_agent_generator.tools import (
+    ToolRegistry,      # Browse pre-built tools
+    ToolGenerator,     # Generate custom tools
+    ToolCategory,      # Tool category enum
+    ToolDefinition,    # Tool data class
+)
+```
+
+### Orchestration Module
+
+```python
+from multi_agent_generator.orchestration import (
+    Orchestrator,      # High-level orchestration interface
+    PatternType,       # Pattern type enum
+    SupervisorPattern, # Supervisor pattern
+    DebatePattern,     # Debate pattern
+    VotingPattern,     # Voting pattern
+    PipelinePattern,   # Pipeline pattern
+    MapReducePattern,  # MapReduce pattern
+)
+```
+
+### Evaluation Module
+
+```python
+from multi_agent_generator.evaluation import (
+    TestGenerator,     # Auto-generate test suites
+    TestCase,          # Individual test case
+    TestSuite,         # Collection of tests
+    AgentEvaluator,    # Evaluate agent outputs
+    EvaluationResult,  # Evaluation results
+    Benchmark,         # Performance benchmarking
+)
+```
 
 ---
 
@@ -183,4 +361,4 @@ MIT
 
 Maintainers: **[Nabarko Roy](https://github.com/Nabarko)**
 
-Made with ❤️ If you like star the repo and share it with AI Enthusiasts.
+Made with love. If you like star the repo and share it with AI Enthusiasts.

@@ -21,6 +21,10 @@ nav:
   - Home: index.md
   - Installation: installation.md
   - Usage: usage.md
+  - Features:
+      - Tool Discovery: tools.md
+      - Orchestration Patterns: orchestration.md
+      - Evaluation & Testing: evaluation.md
   - Frameworks:
       - CrewAI: frameworks/crewai.md
       - CrewAI Flow: frameworks/crewai-flow.md
@@ -29,4 +33,6 @@ nav:
       - ReAct (LCEL): frameworks/react-lcel.md
       - Agno: frameworks/agno.md
   - LLM Providers: llm-providers.md
+  - API Reference: api-reference.md
   - Examples: examples.md
+

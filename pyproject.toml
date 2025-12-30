@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "multi-agent-generator"
-version = "0.4.0"
+version = "0.5.0"
 description = "Generate multi-agent AI teams from plain English, supporting multiple LLM backends via LiteLLM"
 readme = "README.md"
 requires-python = ">=3.8"
@@ -22,10 +22,10 @@ classifiers = [
 dependencies = [
     "litellm>=0.1.0",            # unified provider-agnostic client
     "streamlit>=1.22.0",
-    "langchain>=0.0.271",
-    "langchain-core>=0.0.1",
-    "langchain-openai>=0.0.1",
-    "langgraph>=0.0.16",
+    "langchain>=0.3.0,<0.4.0",
+    "langchain-core>=0.3.0,<0.4.0",
+    "langchain-openai>=0.2.0,<0.4.0",
+    "langgraph>=0.2.0",
     "python-dotenv>=1.0.0",
     "pydantic>=2.0.0",
     "agno==1.8.4",
