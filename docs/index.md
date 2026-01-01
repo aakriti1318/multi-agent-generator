@@ -8,11 +8,12 @@ No scripting. No complexity. Just describe what you want, and let it build the a
 
 ---
 
-## What's New in v0.5.0
+## What's New in v1.0.0
 
 - **Tool Auto-Discovery & Generation** - 15+ pre-built tools + natural language tool creation
 - **Multi-Agent Orchestration Patterns** - Supervisor, Debate, Voting, Pipeline, MapReduce
 - **Evaluation & Testing Framework** - Auto-generated tests + output quality metrics
+- **Full CLI Support** - CLI commands for tools, evaluation, and orchestration
 
 ---
 
@@ -26,13 +27,14 @@ No scripting. No complexity. Just describe what you want, and let it build the a
 - JSON + code output formats
 - Extensible agent/task configuration
 
-### New in v0.5.0
+### New in v1.0.0
 - **Tool Registry** - Browse and use 15+ pre-built tools across 10 categories
 - **Tool Generator** - Create custom tools from natural language descriptions
 - **Orchestration Patterns** - 5 battle-tested patterns for agent coordination
 - **Test Generator** - Auto-generate pytest test suites for your agents
 - **Agent Evaluator** - Measure output quality with 7 built-in metrics
 - **Benchmarking** - Performance testing and comparison
+- **Full CLI Support** - Complete command-line interface for all features
 
 ---
 
