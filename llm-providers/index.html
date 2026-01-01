@@ -6,21 +6,24 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Generate multi-agent AI workflows from plain English using CrewAI, LangGraph, and ReAct. Powered by LiteLLM.">
+        <meta name="description" content="Generate multi-agent AI workflows from plain English using CrewAI, LangGraph, Agno, and ReAct. Powered by LiteLLM.">
       
       
       
         <link rel="canonical" href="https://aakriti1318.github.io/multi-agent-generator/llm-providers/">
       
       
-        <link rel="prev" href="../frameworks/react-lcel/">
+        <link rel="prev" href="../frameworks/agno/">
       
       
-        <link rel="next" href="../examples/">
+        <link rel="next" href="../api-reference/">
+      
+      
+        
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -28,10 +31,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.e53b48f4.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -56,7 +59,6 @@
 
     
     
-    
   </head>
   
   
@@ -74,6 +76,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#llm-providers" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -174,7 +181,7 @@
         <a href="https://github.com/aakriti1318/multi-agent-generator" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     aakriti1318/multi-agent-generator
@@ -261,6 +268,26 @@
     
     
       <li class="md-tabs__item">
+        <a href="../tools/" class="md-tabs__link">
+          
+  
+  
+  Features
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
         <a href="../frameworks/crewai/" class="md-tabs__link">
           
   
@@ -288,6 +315,25 @@
     
   
   LLM Providers
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../api-reference/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  API Reference
 
       </a>
     </li>
@@ -348,7 +394,7 @@
       <a href="https://github.com/aakriti1318/multi-agent-generator" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     aakriti1318/multi-agent-generator
@@ -370,9 +416,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Home
+  
+
     
   </span>
+  
   
 
       </a>
@@ -392,9 +443,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Installation
+  
+
     
   </span>
+  
   
 
       </a>
@@ -414,9 +470,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Usage
+  
+
     
   </span>
+  
   
 
       </a>
@@ -452,9 +513,14 @@
   
   
   <span class="md-ellipsis">
-    Frameworks
+    
+  
+    Features
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -463,7 +529,154 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            Frameworks
+            
+  
+    Features
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tool Discovery
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../orchestration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Orchestration Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Evaluation & Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frameworks
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Frameworks
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -479,9 +692,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     CrewAI
+  
+
     
   </span>
+  
   
 
       </a>
@@ -502,9 +720,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     CrewAI Flow
+  
+
     
   </span>
+  
   
 
       </a>
@@ -525,9 +748,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     LangGraph
+  
+
     
   </span>
+  
   
 
       </a>
@@ -548,9 +776,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     ReAct (Classic)
+  
+
     
   </span>
+  
   
 
       </a>
@@ -571,9 +804,42 @@
   
   
   <span class="md-ellipsis">
+    
+  
     ReAct (LCEL)
+  
+
     
   </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../frameworks/agno/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agno
+  
+
+    
+  </span>
+  
   
 
       </a>
@@ -602,19 +868,345 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM Providers
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
+    
+  
     LLM Providers
+  
+
     
   </span>
+  
   
 
       </a>
       
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#supported-providers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supported Providers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#openai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenAI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ibm-watsonx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IBM WatsonX
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ollama-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ollama (Local)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anthropic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Anthropic
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#azure-openai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Azure OpenAI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#google-vertex-ai-gemini" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Google (Vertex AI / Gemini)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#switching-providers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Switching Providers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Switching Providers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python API
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#streamlit-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Streamlit UI
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom Models
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Custom Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#specifying-a-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Specifying a Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-litellm-directly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using LiteLLM Directly
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#provider-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Provider Comparison
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api-key-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API Key Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rate-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rate Limits
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connection-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connection Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#provider-not-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Provider Not Found
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -631,9 +1223,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Examples
+  
+
     
   </span>
+  
   
 
       </a>
@@ -658,6 +1255,271 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#supported-providers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supported Providers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#openai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenAI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ibm-watsonx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IBM WatsonX
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ollama-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ollama (Local)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anthropic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Anthropic
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#azure-openai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Azure OpenAI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#google-vertex-ai-gemini" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Google (Vertex AI / Gemini)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#switching-providers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Switching Providers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Switching Providers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python API
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#streamlit-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Streamlit UI
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom Models
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Custom Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#specifying-a-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Specifying a Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-litellm-directly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using LiteLLM Directly
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#provider-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Provider Comparison
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api-key-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API Key Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rate-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rate Limits
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connection-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connection Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#provider-not-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Provider Not Found
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -667,6 +1529,7 @@
           
           
             <div class="md-content" data-md-component="content">
+              
               <article class="md-content__inner md-typeset">
                 
                   
@@ -676,9 +1539,259 @@
   
 
 
-  <h1>LLM Providers</h1>
+<h1 id="llm-providers">LLM Providers</h1>
+<p>Multi-Agent Generator supports multiple LLM providers through LiteLLM, making it easy to switch between providers.</p>
+<hr />
+<h2 id="supported-providers">Supported Providers</h2>
+<table>
+<thead>
+<tr>
+<th>Provider</th>
+<th>Models</th>
+<th>Default Model</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>OpenAI</strong></td>
+<td>GPT-4, GPT-4o, GPT-3.5</td>
+<td>gpt-4o-mini</td>
+</tr>
+<tr>
+<td><strong>IBM WatsonX</strong></td>
+<td>Llama 3, Granite</td>
+<td>llama-3-70b-instruct</td>
+</tr>
+<tr>
+<td><strong>Ollama</strong></td>
+<td>Llama, Mistral, CodeLlama</td>
+<td>llama3</td>
+</tr>
+<tr>
+<td><strong>Anthropic</strong></td>
+<td>Claude 3, Claude 2</td>
+<td>claude-3-sonnet</td>
+</tr>
+<tr>
+<td><strong>Azure OpenAI</strong></td>
+<td>GPT-4, GPT-3.5</td>
+<td>gpt-4</td>
+</tr>
+<tr>
+<td><strong>Google</strong></td>
+<td>Gemini Pro, PaLM</td>
+<td>gemini-pro</td>
+</tr>
+<tr>
+<td><strong>Cohere</strong></td>
+<td>Command, Command-Light</td>
+<td>command</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="configuration">Configuration</h2>
+<h3 id="openai">OpenAI</h3>
+<pre><code class="language-bash">export OPENAI_API_KEY=&quot;sk-...&quot;
+</code></pre>
+<pre><code class="language-bash">multi-agent-generator &quot;Your prompt&quot; --provider openai
+</code></pre>
+<p><strong>Available Models:</strong>
+- <code>gpt-4o</code> - Latest GPT-4 optimized
+- <code>gpt-4o-mini</code> - Smaller, faster GPT-4 (default)
+- <code>gpt-4-turbo</code> - GPT-4 with vision
+- <code>gpt-3.5-turbo</code> - Fast and cost-effective</p>
+<hr />
+<h3 id="ibm-watsonx">IBM WatsonX</h3>
+<pre><code class="language-bash">export WATSONX_API_KEY=&quot;your-api-key&quot;
+export WATSONX_PROJECT_ID=&quot;your-project-id&quot;
+export WATSONX_URL=&quot;https://us-south.ml.cloud.ibm.com&quot;
+</code></pre>
+<pre><code class="language-bash">multi-agent-generator &quot;Your prompt&quot; --provider watsonx
+</code></pre>
+<p><strong>Available Models:</strong>
+- <code>llama-3-70b-instruct</code> - Llama 3 70B (default)
+- <code>llama-3-8b-instruct</code> - Llama 3 8B
+- <code>granite-13b-chat-v2</code> - IBM Granite
+- <code>mixtral-8x7b-instruct</code> - Mixtral</p>
+<hr />
+<h3 id="ollama-local">Ollama (Local)</h3>
+<p>Run models locally with Ollama:</p>
+<pre><code class="language-bash"># Install Ollama
+curl -fsSL https://ollama.com/install.sh | sh
 
+# Pull a model
+ollama pull llama3
 
+# Set environment
+export OLLAMA_URL=&quot;http://localhost:11434&quot;
+</code></pre>
+<pre><code class="language-bash">multi-agent-generator &quot;Your prompt&quot; --provider ollama
+</code></pre>
+<p><strong>Available Models:</strong>
+- <code>llama3</code> - Llama 3 (default)
+- <code>llama3:70b</code> - Llama 3 70B
+- <code>mistral</code> - Mistral 7B
+- <code>codellama</code> - Code Llama
+- <code>mixtral</code> - Mixtral 8x7B</p>
+<hr />
+<h3 id="anthropic">Anthropic</h3>
+<pre><code class="language-bash">export ANTHROPIC_API_KEY=&quot;sk-ant-...&quot;
+</code></pre>
+<pre><code class="language-bash">multi-agent-generator &quot;Your prompt&quot; --provider anthropic
+</code></pre>
+<p><strong>Available Models:</strong>
+- <code>claude-3-opus</code> - Most capable
+- <code>claude-3-sonnet</code> - Balanced (default)
+- <code>claude-3-haiku</code> - Fast and efficient</p>
+<hr />
+<h3 id="azure-openai">Azure OpenAI</h3>
+<pre><code class="language-bash">export AZURE_API_KEY=&quot;your-key&quot;
+export AZURE_API_BASE=&quot;https://your-resource.openai.azure.com&quot;
+export AZURE_API_VERSION=&quot;2024-02-01&quot;
+</code></pre>
+<pre><code class="language-bash">multi-agent-generator &quot;Your prompt&quot; --provider azure
+</code></pre>
+<hr />
+<h3 id="google-vertex-ai-gemini">Google (Vertex AI / Gemini)</h3>
+<pre><code class="language-bash">export GOOGLE_API_KEY=&quot;your-api-key&quot;
+# Or for Vertex AI
+export GOOGLE_APPLICATION_CREDENTIALS=&quot;path/to/credentials.json&quot;
+</code></pre>
+<pre><code class="language-bash">multi-agent-generator &quot;Your prompt&quot; --provider google
+</code></pre>
+<p><strong>Available Models:</strong>
+- <code>gemini-pro</code> - Gemini Pro (default)
+- <code>gemini-pro-vision</code> - With vision capabilities</p>
+<hr />
+<h2 id="switching-providers">Switching Providers</h2>
+<h3 id="cli">CLI</h3>
+<p>Use the <code>--provider</code> flag:</p>
+<pre><code class="language-bash"># OpenAI (default)
+multi-agent-generator &quot;prompt&quot; --framework crewai
+
+# WatsonX
+multi-agent-generator &quot;prompt&quot; --framework crewai --provider watsonx
+
+# Ollama
+multi-agent-generator &quot;prompt&quot; --framework crewai --provider ollama
+
+# Anthropic
+multi-agent-generator &quot;prompt&quot; --framework crewai --provider anthropic
+</code></pre>
+<h3 id="python-api">Python API</h3>
+<pre><code class="language-python">from multi_agent_generator import generate_agents
+
+# OpenAI
+result = generate_agents(prompt, framework=&quot;crewai&quot;, provider=&quot;openai&quot;)
+
+# WatsonX
+result = generate_agents(prompt, framework=&quot;crewai&quot;, provider=&quot;watsonx&quot;)
+
+# Ollama
+result = generate_agents(prompt, framework=&quot;crewai&quot;, provider=&quot;ollama&quot;)
+</code></pre>
+<h3 id="streamlit-ui">Streamlit UI</h3>
+<p>Select the provider from the dropdown in the sidebar.</p>
+<hr />
+<h2 id="custom-models">Custom Models</h2>
+<h3 id="specifying-a-model">Specifying a Model</h3>
+<pre><code class="language-python">from multi_agent_generator import generate_agents
+
+result = generate_agents(
+    prompt=&quot;Your prompt&quot;,
+    framework=&quot;crewai&quot;,
+    provider=&quot;openai&quot;,
+    model=&quot;gpt-4-turbo&quot;  # Specify model
+)
+</code></pre>
+<h3 id="using-litellm-directly">Using LiteLLM Directly</h3>
+<p>For advanced use cases, access LiteLLM directly:</p>
+<pre><code class="language-python">import litellm
+
+response = litellm.completion(
+    model=&quot;gpt-4o-mini&quot;,
+    messages=[{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Hello&quot;}]
+)
+</code></pre>
+<hr />
+<h2 id="provider-comparison">Provider Comparison</h2>
+<table>
+<thead>
+<tr>
+<th>Provider</th>
+<th>Speed</th>
+<th>Cost</th>
+<th>Quality</th>
+<th>Local</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OpenAI GPT-4o</td>
+<td>Fast</td>
+<td>$$</td>
+<td>Excellent</td>
+<td>No</td>
+</tr>
+<tr>
+<td>WatsonX Llama</td>
+<td>Medium</td>
+<td>$$</td>
+<td>Very Good</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Ollama</td>
+<td>Varies</td>
+<td>Free</td>
+<td>Good</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Anthropic Claude</td>
+<td>Fast</td>
+<td>$$$</td>
+<td>Excellent</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Google Gemini</td>
+<td>Fast</td>
+<td>$</td>
+<td>Very Good</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="api-key-issues">API Key Issues</h3>
+<pre><code class="language-bash"># Verify API key is set
+echo $OPENAI_API_KEY
+
+# Test with a simple call
+python -c &quot;import litellm; print(litellm.completion(model='gpt-4o-mini', messages=[{'role':'user','content':'hi'}]))&quot;
+</code></pre>
+<h3 id="rate-limits">Rate Limits</h3>
+<p>If you hit rate limits, consider:
+- Using a different model (e.g., gpt-3.5-turbo)
+- Adding delays between requests
+- Using a local model with Ollama</p>
+<h3 id="connection-issues">Connection Issues</h3>
+<p>For Ollama:</p>
+<pre><code class="language-bash"># Check Ollama is running
+curl http://localhost:11434/api/tags
+
+# Restart Ollama
+ollama serve
+</code></pre>
+<h3 id="provider-not-found">Provider Not Found</h3>
+<p>Ensure you have the correct provider name:
+- <code>openai</code> (not "OpenAI")
+- <code>watsonx</code> (not "ibm" or "watson")
+- <code>ollama</code> (not "local")
+- <code>anthropic</code> (not "claude")</p>
 
 
 
@@ -729,10 +1842,11 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.sections", "navigation.tabs", "content.code.copy", "content.tabs.link"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.sections", "navigation.tabs", "content.code.copy", "content.tabs.link"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

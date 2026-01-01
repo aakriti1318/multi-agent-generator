@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://aakriti1318.github.io/multi-agent-generator/frameworks/crewai-flow/">
+        <link rel="canonical" href="https://aakriti1318.github.io/multi-agent-generator/frameworks/agno/">
       
       
-        <link rel="prev" href="../crewai/">
+        <link rel="prev" href="../react-lcel/">
       
       
-        <link rel="next" href="../langgraph/">
+        <link rel="next" href="../../llm-providers/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>CrewAI Flow - Multi-Agent Generator</title>
+        <title>Agno - Multi-Agent Generator</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#crewai-flow" class="md-skip">
+        <a href="#agno-framework" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              CrewAI Flow
+              Agno
             
           </span>
         </div>
@@ -717,37 +717,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    CrewAI Flow
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../crewai-flow/" class="md-nav__link">
         
   
   
@@ -763,54 +736,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Example
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Example">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#this-produces" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        This produces:
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -904,10 +829,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../agno/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agno
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -923,6 +875,54 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#produces-agents-like" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Produces agents like:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1055,10 +1055,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#this-produces" class="md-nav__link">
+  <a href="#produces-agents-like" class="md-nav__link">
     <span class="md-ellipsis">
       
-        This produces:
+        Produces agents like:
       
     </span>
   </a>
@@ -1090,25 +1090,55 @@
   
 
 
-<h1 id="crewai-flow">CrewAI Flow</h1>
-<p>CrewAI Flow extends CrewAI with <strong>event-driven workflows</strong>.<br />
-It enables sequential, parallel, and conditional task execution with state management.</p>
-<hr />
-<h2 id="example">Example</h2>
-<pre><code class="language-bash">multi-agent-generator &quot;Analyze customer reviews and generate insights&quot; --framework crewai-flow
-</code></pre>
-<h3 id="this-produces">This produces:</h3>
+<h1 id="agno-framework">Agno Framework</h1>
+<p>Agno coordinates and orchestrates <strong>role-playing autonomous AI agents</strong>.
+Each agent has:</p>
 <ul>
-<li>
-<p>Specialized agents (e.g., Data Collector, Data Analyst, Writer)</p>
-</li>
-<li>
-<p>Sequential flow: collect → analyze → summarize</p>
-</li>
-<li>
-<p>Task delegation and transitions defined</p>
-</li>
+<li><strong>Name and Role</strong>: what they do</li>
+<li><strong>Goal</strong>: their objective</li>
+<li><strong>Backstory</strong>: context</li>
+<li><strong>Tools</strong>: available abilities</li>
 </ul>
+<p>Tasks are assigned to agents with expected outputs.</p>
+<h2 id="example">Example</h2>
+<pre><code class="language-bash">multi-agent-generator &quot;Research AI trends and write a summary&quot; --framework agno
+</code></pre>
+<h3 id="produces-agents-like">Produces agents like:</h3>
+<pre><code class="language-json">{
+  &quot;model_id&quot;: &quot;gpt-4o&quot;,
+  &quot;process&quot;: &quot;sequential&quot;,
+  &quot;agents&quot;: [
+    {
+      &quot;name&quot;: &quot;research_specialist&quot;,
+      &quot;role&quot;: &quot;Research Specialist&quot;,
+      &quot;goal&quot;: &quot;Gather AI research trends&quot;,
+      &quot;backstory&quot;: &quot;Expert in sourcing and aggregating technology news&quot;,
+      &quot;tools&quot;: [&quot;DuckDuckGoTools&quot;, &quot;Newspaper4kTools&quot;]
+    },
+    {
+      &quot;name&quot;: &quot;writer&quot;,
+      &quot;role&quot;: &quot;Content Writer&quot;,
+      &quot;goal&quot;: &quot;Write a clear summary&quot;,
+      &quot;backstory&quot;: &quot;Skilled at concise technical writing&quot;,
+      &quot;tools&quot;: []
+    }
+  ],
+  &quot;tasks&quot;: [
+    {
+      &quot;name&quot;: &quot;research_task&quot;,
+      &quot;description&quot;: &quot;Find recent AI trends across news and blogs&quot;,
+      &quot;agent&quot;: &quot;research_specialist&quot;,
+      &quot;expected_output&quot;: &quot;Bullet list of trends with links&quot;
+    },
+    {
+      &quot;name&quot;: &quot;writing_task&quot;,
+      &quot;description&quot;: &quot;Summarize the trends for a general audience&quot;,
+      &quot;agent&quot;: &quot;writer&quot;,
+      &quot;expected_output&quot;: &quot;400-word Markdown summary&quot;
+    }
+  ]
+}
+</code></pre>
 
 
 

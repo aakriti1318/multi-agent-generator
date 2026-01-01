@@ -10,11 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://aakriti1318.github.io/multi-agent-generator/examples/">
+        <link rel="canonical" href="https://aakriti1318.github.io/multi-agent-generator/api-reference/">
       
       
-        <link rel="prev" href="../api-reference/">
+        <link rel="prev" href="../llm-providers/">
       
+      
+        <link rel="next" href="../examples/">
       
       
         
@@ -25,7 +27,7 @@
     
     
       
-        <title>Examples - Multi-Agent Generator</title>
+        <title>API Reference - Multi-Agent Generator</title>
       
     
     
@@ -76,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#examples" class="md-skip">
+        <a href="#api-reference" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Examples
+              API Reference
             
           </span>
         </div>
@@ -321,9 +323,11 @@
   
   
   
+    
   
-    <li class="md-tabs__item">
-      <a href="../api-reference/" class="md-tabs__link">
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
         
   
   
@@ -340,11 +344,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../examples/" class="md-tabs__link">
         
   
   
@@ -884,33 +886,6 @@
       
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../api-reference/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    API Reference
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
     
   
   
@@ -930,7 +905,7 @@
   <span class="md-ellipsis">
     
   
-    Examples
+    API Reference
   
 
     
@@ -948,7 +923,7 @@
   <span class="md-ellipsis">
     
   
-    Examples
+    API Reference
   
 
     
@@ -974,55 +949,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#agent-generation-examples" class="md-nav__link">
+  <a href="#core-module" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Agent Generation Examples
+        Core Module
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Agent Generation Examples">
+    <nav class="md-nav" aria-label="Core Module">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#research-assistant" class="md-nav__link">
+  <a href="#generate_agents" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Research Assistant
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#content-creation-team" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Content Creation Team
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#customer-support-langgraph" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Customer Support (LangGraph)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#data-analysis-pipeline" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Data Analysis Pipeline
+        generate_agents
       
     </span>
   </a>
@@ -1035,22 +977,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tool-discovery-examples" class="md-nav__link">
+  <a href="#tools-module" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Tool Discovery Examples
+        Tools Module
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Tool Discovery Examples">
+    <nav class="md-nav" aria-label="Tools Module">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#browse-pre-built-tools" class="md-nav__link">
+  <a href="#toolregistry" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Browse Pre-built Tools
+        ToolRegistry
       
     </span>
   </a>
@@ -1058,10 +1000,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#get-tool-code-for-a-framework" class="md-nav__link">
+  <a href="#toolgenerator" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Get Tool Code for a Framework
+        ToolGenerator
       
     </span>
   </a>
@@ -1069,10 +1011,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#generate-custom-tools" class="md-nav__link">
+  <a href="#toolcategory-enum" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Generate Custom Tools
+        ToolCategory (Enum)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tooldefinition-dataclass" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ToolDefinition (DataClass)
       
     </span>
   </a>
@@ -1085,22 +1038,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#orchestration-pattern-examples" class="md-nav__link">
+  <a href="#orchestration-module" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Orchestration Pattern Examples
+        Orchestration Module
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Orchestration Pattern Examples">
+    <nav class="md-nav" aria-label="Orchestration Module">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#supervisor-pattern" class="md-nav__link">
+  <a href="#orchestrator" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Supervisor Pattern
+        Orchestrator
       
     </span>
   </a>
@@ -1108,10 +1061,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#debate-pattern" class="md-nav__link">
+  <a href="#patterntype-enum" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Debate Pattern
+        PatternType (Enum)
       
     </span>
   </a>
@@ -1119,10 +1072,22 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#voting-pattern" class="md-nav__link">
+  <a href="#pattern-classes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Voting Pattern
+        Pattern Classes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pattern Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#supervisorpattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SupervisorPattern
       
     </span>
   </a>
@@ -1130,10 +1095,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#pipeline-pattern" class="md-nav__link">
+  <a href="#debatepattern" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pipeline Pattern
+        DebatePattern
       
     </span>
   </a>
@@ -1141,10 +1106,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#map-reduce-pattern" class="md-nav__link">
+  <a href="#votingpattern" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Map-Reduce Pattern
+        VotingPattern
       
     </span>
   </a>
@@ -1152,10 +1117,142 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#generate-from-description" class="md-nav__link">
+  <a href="#pipelinepattern" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Generate from Description
+        PipelinePattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapreducepattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MapReducePattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evaluation-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evaluation Module
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Evaluation Module">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testgenerator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TestGenerator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testtype-enum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TestType (Enum)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testsuite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TestSuite
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testcase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TestCase
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agentevaluator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AgentEvaluator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evaluationconfig" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EvaluationConfig
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evaluationresult" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EvaluationResult
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#benchmark" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Benchmark
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#benchmarkresult" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BenchmarkResult
       
     </span>
   </a>
@@ -1168,71 +1265,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#evaluation-examples" class="md-nav__link">
+  <a href="#framework-generators" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Evaluation Examples
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Evaluation Examples">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#generate-unit-tests" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Generate Unit Tests
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#evaluate-agent-output" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Evaluate Agent Output
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#run-benchmarks" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Run Benchmarks
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#compare-frameworks" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Compare Frameworks
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#complete-workflow-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Complete Workflow Example
+        Framework Generators
       
     </span>
   </a>
@@ -1243,6 +1279,33 @@
   
 </nav>
       
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1274,55 +1337,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#agent-generation-examples" class="md-nav__link">
+  <a href="#core-module" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Agent Generation Examples
+        Core Module
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Agent Generation Examples">
+    <nav class="md-nav" aria-label="Core Module">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#research-assistant" class="md-nav__link">
+  <a href="#generate_agents" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Research Assistant
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#content-creation-team" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Content Creation Team
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#customer-support-langgraph" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Customer Support (LangGraph)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#data-analysis-pipeline" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Data Analysis Pipeline
+        generate_agents
       
     </span>
   </a>
@@ -1335,22 +1365,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tool-discovery-examples" class="md-nav__link">
+  <a href="#tools-module" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Tool Discovery Examples
+        Tools Module
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Tool Discovery Examples">
+    <nav class="md-nav" aria-label="Tools Module">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#browse-pre-built-tools" class="md-nav__link">
+  <a href="#toolregistry" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Browse Pre-built Tools
+        ToolRegistry
       
     </span>
   </a>
@@ -1358,10 +1388,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#get-tool-code-for-a-framework" class="md-nav__link">
+  <a href="#toolgenerator" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Get Tool Code for a Framework
+        ToolGenerator
       
     </span>
   </a>
@@ -1369,10 +1399,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#generate-custom-tools" class="md-nav__link">
+  <a href="#toolcategory-enum" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Generate Custom Tools
+        ToolCategory (Enum)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tooldefinition-dataclass" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ToolDefinition (DataClass)
       
     </span>
   </a>
@@ -1385,22 +1426,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#orchestration-pattern-examples" class="md-nav__link">
+  <a href="#orchestration-module" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Orchestration Pattern Examples
+        Orchestration Module
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Orchestration Pattern Examples">
+    <nav class="md-nav" aria-label="Orchestration Module">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#supervisor-pattern" class="md-nav__link">
+  <a href="#orchestrator" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Supervisor Pattern
+        Orchestrator
       
     </span>
   </a>
@@ -1408,10 +1449,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#debate-pattern" class="md-nav__link">
+  <a href="#patterntype-enum" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Debate Pattern
+        PatternType (Enum)
       
     </span>
   </a>
@@ -1419,10 +1460,22 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#voting-pattern" class="md-nav__link">
+  <a href="#pattern-classes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Voting Pattern
+        Pattern Classes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pattern Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#supervisorpattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SupervisorPattern
       
     </span>
   </a>
@@ -1430,10 +1483,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#pipeline-pattern" class="md-nav__link">
+  <a href="#debatepattern" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pipeline Pattern
+        DebatePattern
       
     </span>
   </a>
@@ -1441,10 +1494,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#map-reduce-pattern" class="md-nav__link">
+  <a href="#votingpattern" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Map-Reduce Pattern
+        VotingPattern
       
     </span>
   </a>
@@ -1452,10 +1505,142 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#generate-from-description" class="md-nav__link">
+  <a href="#pipelinepattern" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Generate from Description
+        PipelinePattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapreducepattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MapReducePattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evaluation-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evaluation Module
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Evaluation Module">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testgenerator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TestGenerator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testtype-enum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TestType (Enum)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testsuite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TestSuite
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testcase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TestCase
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agentevaluator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AgentEvaluator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evaluationconfig" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EvaluationConfig
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evaluationresult" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EvaluationResult
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#benchmark" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Benchmark
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#benchmarkresult" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BenchmarkResult
       
     </span>
   </a>
@@ -1468,71 +1653,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#evaluation-examples" class="md-nav__link">
+  <a href="#framework-generators" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Evaluation Examples
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Evaluation Examples">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#generate-unit-tests" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Generate Unit Tests
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#evaluate-agent-output" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Evaluate Agent Output
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#run-benchmarks" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Run Benchmarks
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#compare-frameworks" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Compare Frameworks
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#complete-workflow-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Complete Workflow Example
+        Framework Generators
       
     </span>
   </a>
@@ -1559,311 +1683,390 @@
   
 
 
-<h1 id="examples">Examples</h1>
-<p>This page contains practical examples for all major features of multi-agent-generator.</p>
+<h1 id="api-reference">API Reference</h1>
+<p>Complete API reference for the Multi-Agent Generator library.</p>
 <hr />
-<h2 id="agent-generation-examples">Agent Generation Examples</h2>
-<h3 id="research-assistant">Research Assistant</h3>
-<p><strong>Prompt:</strong></p>
-<pre><code>I need a research assistant that summarizes papers and answers questions
-</code></pre>
-<p><strong>Command:</strong></p>
-<pre><code class="language-bash">multi-agent-generator &quot;I need a research assistant that summarizes papers and answers questions&quot; --framework crewai --output researcher.py
-</code></pre>
-<h3 id="content-creation-team">Content Creation Team</h3>
-<p><strong>Prompt:</strong></p>
-<pre><code>I need a team to create viral social media content and manage our brand presence
-</code></pre>
-<p><strong>Command:</strong></p>
-<pre><code class="language-bash">multi-agent-generator &quot;I need a team to create viral social media content and manage our brand presence&quot; --framework langgraph --output content_team.py
-</code></pre>
-<h3 id="customer-support-langgraph">Customer Support (LangGraph)</h3>
-<p><strong>Prompt:</strong></p>
-<pre><code>Build me a LangGraph workflow for customer support with routing and escalation
-</code></pre>
-<p><strong>Command:</strong></p>
-<pre><code class="language-bash">multi-agent-generator &quot;Build me a LangGraph workflow for customer support with routing and escalation&quot; --framework langgraph --output support.py
-</code></pre>
-<h3 id="data-analysis-pipeline">Data Analysis Pipeline</h3>
-<p><strong>Prompt:</strong></p>
-<pre><code>Create a data analysis team with a collector, processor, and reporter
-</code></pre>
-<p><strong>Command:</strong></p>
-<pre><code class="language-bash">multi-agent-generator &quot;Create a data analysis team with a collector, processor, and reporter&quot; --framework crewai-flow --output data_pipeline.py
-</code></pre>
-<hr />
-<h2 id="tool-discovery-examples">Tool Discovery Examples</h2>
-<h3 id="browse-pre-built-tools">Browse Pre-built Tools</h3>
-<pre><code class="language-python">from multi_agent_generator.tools import ToolRegistry
-
-registry = ToolRegistry()
-
-# List all categories
-for category in registry.get_categories():
-    print(f&quot;Category: {category}&quot;)
-    for tool in registry.get_tools_by_category(category):
-        print(f&quot;  - {tool.name}: {tool.description}&quot;)
-</code></pre>
-<h3 id="get-tool-code-for-a-framework">Get Tool Code for a Framework</h3>
-<pre><code class="language-python">from multi_agent_generator.tools import ToolRegistry
-
-registry = ToolRegistry()
-tool = registry.get_tool(&quot;tavily_search&quot;)
-
-# Get CrewAI-compatible code
-crewai_code = tool.get_code(&quot;crewai&quot;)
-print(crewai_code)
-
-# Get LangGraph-compatible code
-langgraph_code = tool.get_code(&quot;langgraph&quot;)
-print(langgraph_code)
-</code></pre>
-<h3 id="generate-custom-tools">Generate Custom Tools</h3>
-<pre><code class="language-python">from multi_agent_generator.tools import ToolGenerator
-
-generator = ToolGenerator()
-
-# From description
-tool = generator.generate_tool(
-    &quot;Create a tool that fetches stock prices from Yahoo Finance&quot;
-)
-print(tool.code)
-print(tool.dependencies)
-
-# Generate multiple tools from a task
-tools = generator.generate_tools_for_task(
-    &quot;Build a financial analysis agent&quot;,
-    max_tools=5
-)
-for tool in tools:
-    print(f&quot;- {tool.name}: {tool.description}&quot;)
-</code></pre>
-<hr />
-<h2 id="orchestration-pattern-examples">Orchestration Pattern Examples</h2>
-<h3 id="supervisor-pattern">Supervisor Pattern</h3>
-<pre><code class="language-python">from multi_agent_generator.orchestration import Orchestrator, PatternType
-
-orchestrator = Orchestrator()
-
-config = orchestrator.create_pattern_config(
-    pattern_type=PatternType.SUPERVISOR,
-    agents=[&quot;researcher&quot;, &quot;writer&quot;, &quot;reviewer&quot;],
-    task_description=&quot;Write a comprehensive market analysis report&quot;
-)
-
-code = orchestrator.generate_code(config, framework=&quot;langgraph&quot;)
-print(code)
-</code></pre>
-<h3 id="debate-pattern">Debate Pattern</h3>
-<pre><code class="language-python">from multi_agent_generator.orchestration import Orchestrator, PatternType
-
-orchestrator = Orchestrator()
-
-config = orchestrator.create_pattern_config(
-    pattern_type=PatternType.DEBATE,
-    agents=[&quot;optimist&quot;, &quot;pessimist&quot;, &quot;moderator&quot;],
-    task_description=&quot;Evaluate the investment opportunity&quot;,
-    debate_rounds=3
-)
-
-code = orchestrator.generate_code(config, framework=&quot;crewai&quot;)
-print(code)
-</code></pre>
-<h3 id="voting-pattern">Voting Pattern</h3>
-<pre><code class="language-python">from multi_agent_generator.orchestration import Orchestrator, PatternType
-
-orchestrator = Orchestrator()
-
-config = orchestrator.create_pattern_config(
-    pattern_type=PatternType.VOTING,
-    agents=[&quot;analyst_1&quot;, &quot;analyst_2&quot;, &quot;analyst_3&quot;],
-    task_description=&quot;Classify customer feedback sentiment&quot;,
-    voting_threshold=0.6
-)
-
-code = orchestrator.generate_code(config, framework=&quot;langgraph&quot;)
-print(code)
-</code></pre>
-<h3 id="pipeline-pattern">Pipeline Pattern</h3>
-<pre><code class="language-python">from multi_agent_generator.orchestration import Orchestrator, PatternType
-
-orchestrator = Orchestrator()
-
-config = orchestrator.create_pattern_config(
-    pattern_type=PatternType.PIPELINE,
-    agents=[&quot;data_collector&quot;, &quot;data_cleaner&quot;, &quot;analyzer&quot;, &quot;reporter&quot;],
-    task_description=&quot;Process and analyze sales data&quot;
-)
-
-code = orchestrator.generate_code(config, framework=&quot;crewai-flow&quot;)
-print(code)
-</code></pre>
-<h3 id="map-reduce-pattern">Map-Reduce Pattern</h3>
-<pre><code class="language-python">from multi_agent_generator.orchestration import Orchestrator, PatternType
-
-orchestrator = Orchestrator()
-
-config = orchestrator.create_pattern_config(
-    pattern_type=PatternType.MAP_REDUCE,
-    agents=[&quot;mapper_1&quot;, &quot;mapper_2&quot;, &quot;mapper_3&quot;, &quot;reducer&quot;],
-    task_description=&quot;Analyze customer reviews across regions&quot;
-)
-
-code = orchestrator.generate_code(config, framework=&quot;langgraph&quot;)
-print(code)
-</code></pre>
-<h3 id="generate-from-description">Generate from Description</h3>
-<pre><code class="language-python">from multi_agent_generator.orchestration import Orchestrator
-
-orchestrator = Orchestrator()
-
-# Let the system choose the best pattern
-result = orchestrator.generate_from_description(
-    &quot;I need agents that vote on the best marketing strategy&quot;
-)
-
-print(f&quot;Selected pattern: {result['pattern']}&quot;)
-print(result['code'])
-</code></pre>
-<hr />
-<h2 id="evaluation-examples">Evaluation Examples</h2>
-<h3 id="generate-unit-tests">Generate Unit Tests</h3>
-<pre><code class="language-python">from multi_agent_generator.evaluation import TestGenerator
-
-test_gen = TestGenerator()
-
-agent_config = {
-    &quot;agents&quot;: [
-        {&quot;name&quot;: &quot;researcher&quot;, &quot;role&quot;: &quot;Research Specialist&quot;},
-        {&quot;name&quot;: &quot;writer&quot;, &quot;role&quot;: &quot;Content Writer&quot;}
-    ],
-    &quot;tasks&quot;: [
-        {&quot;name&quot;: &quot;research_task&quot;, &quot;description&quot;: &quot;Research the topic&quot;},
-        {&quot;name&quot;: &quot;write_task&quot;, &quot;description&quot;: &quot;Write the article&quot;}
-    ]
-}
-
-test_suite = test_gen.generate_test_suite(
-    agent_config=agent_config,
-    test_types=[&quot;unit&quot;, &quot;integration&quot;]
-)
-
-# Save tests to directory
-test_suite.save(&quot;tests/&quot;)
-print(f&quot;Generated {len(test_suite.tests)} tests&quot;)
-</code></pre>
-<h3 id="evaluate-agent-output">Evaluate Agent Output</h3>
-<pre><code class="language-python">from multi_agent_generator.evaluation import AgentEvaluator
-
-evaluator = AgentEvaluator()
-
-result = evaluator.evaluate(
-    agent_output=&quot;The quarterly analysis shows a 15% increase in revenue...&quot;,
-    expected_output=&quot;Revenue increased by approximately 15% this quarter...&quot;,
-    task_description=&quot;Analyze Q4 financial performance&quot;
-)
-
-print(f&quot;Overall Score: {result.overall_score}&quot;)
-print(f&quot;Relevance: {result.relevance_score}&quot;)
-print(f&quot;Completeness: {result.completeness_score}&quot;)
-print(f&quot;Accuracy: {result.accuracy_score}&quot;)
-</code></pre>
-<h3 id="run-benchmarks">Run Benchmarks</h3>
-<pre><code class="language-python">from multi_agent_generator.evaluation import Benchmark
-
-benchmark = Benchmark()
-
-# Define test cases
-test_cases = [
-    {
-        &quot;input&quot;: &quot;Summarize the Q4 earnings report&quot;,
-        &quot;expected&quot;: &quot;Q4 earnings showed growth...&quot;
-    },
-    {
-        &quot;input&quot;: &quot;Compare product A vs product B&quot;,
-        &quot;expected&quot;: &quot;Product A excels in...&quot;
-    }
-]
-
-# Run benchmark
-results = benchmark.run(
-    agent_function=your_agent.run,
-    test_cases=test_cases,
-    metrics=[&quot;latency&quot;, &quot;accuracy&quot;, &quot;relevance&quot;]
-)
-
-# Generate report
-report = benchmark.generate_report(results)
-print(report)
-</code></pre>
-<h3 id="compare-frameworks">Compare Frameworks</h3>
-<pre><code class="language-python">from multi_agent_generator.evaluation import Benchmark
-
-benchmark = Benchmark()
-
-# Compare the same prompt across frameworks
-comparison = benchmark.compare_frameworks(
-    prompt=&quot;Build a customer support agent&quot;,
-    frameworks=[&quot;crewai&quot;, &quot;langgraph&quot;, &quot;react&quot;],
-    metrics=[&quot;code_quality&quot;, &quot;execution_time&quot;]
-)
-
-for framework, scores in comparison.items():
-    print(f&quot;{framework}: {scores}&quot;)
-</code></pre>
-<hr />
-<h2 id="complete-workflow-example">Complete Workflow Example</h2>
-<p>Here's a complete example combining all features:</p>
+<h2 id="core-module">Core Module</h2>
+<h3 id="generate_agents">generate_agents</h3>
+<p>Generate agent code from a natural language prompt.</p>
 <pre><code class="language-python">from multi_agent_generator import generate_agents
-from multi_agent_generator.tools import ToolRegistry, ToolGenerator
-from multi_agent_generator.orchestration import Orchestrator, PatternType
-from multi_agent_generator.evaluation import TestGenerator, AgentEvaluator
 
-# 1. Discover and select tools
-registry = ToolRegistry()
-web_tools = registry.get_tools_by_category(&quot;web_search&quot;)
-file_tools = registry.get_tools_by_category(&quot;file_operations&quot;)
-
-# 2. Generate custom tool if needed
-tool_gen = ToolGenerator()
-custom_tool = tool_gen.generate_tool(
-    &quot;Create a tool that fetches company financial data from SEC EDGAR&quot;
-)
-
-# 3. Configure orchestration pattern
-orchestrator = Orchestrator()
-pattern_config = orchestrator.create_pattern_config(
-    pattern_type=PatternType.PIPELINE,
-    agents=[&quot;data_gatherer&quot;, &quot;analyzer&quot;, &quot;report_writer&quot;],
-    task_description=&quot;Analyze company financials and write report&quot;
-)
-
-# 4. Generate the agent code
 result = generate_agents(
-    prompt=&quot;Build a financial analysis team&quot;,
-    framework=&quot;langgraph&quot;,
-    provider=&quot;openai&quot;
+    prompt: str,           # Natural language description
+    framework: str,        # Target framework
+    provider: str = &quot;openai&quot;,  # LLM provider
+    format: str = &quot;both&quot;   # Output format: &quot;code&quot;, &quot;json&quot;, or &quot;both&quot;
+) -&gt; dict
+</code></pre>
+<p><strong>Returns:</strong></p>
+<pre><code class="language-python">{
+    &quot;code&quot;: str,      # Generated Python code
+    &quot;config&quot;: dict,   # Agent configuration
+    &quot;framework&quot;: str  # Framework used
+}
+</code></pre>
+<hr />
+<h2 id="tools-module">Tools Module</h2>
+<pre><code class="language-python">from multi_agent_generator.tools import (
+    ToolRegistry,
+    ToolGenerator,
+    ToolCategory,
+    ToolDefinition,
 )
-
-# Save the generated code
-with open(&quot;financial_team.py&quot;, &quot;w&quot;) as f:
-    f.write(result[&quot;code&quot;])
-
-# 5. Generate tests
-test_gen = TestGenerator()
-test_suite = test_gen.generate_test_suite(
-    agent_config=result[&quot;config&quot;],
-    test_types=[&quot;unit&quot;, &quot;integration&quot;, &quot;edge_case&quot;]
+</code></pre>
+<h3 id="toolregistry">ToolRegistry</h3>
+<p>Registry of pre-built tools.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Parameters</th>
+<th>Returns</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>get_categories()</code></td>
+<td>-</td>
+<td><code>List[ToolCategory]</code></td>
+<td>List all tool categories</td>
+</tr>
+<tr>
+<td><code>get_tools_by_category(category)</code></td>
+<td><code>category: ToolCategory</code></td>
+<td><code>List[ToolDefinition]</code></td>
+<td>Get tools in category</td>
+</tr>
+<tr>
+<td><code>get_tool(name)</code></td>
+<td><code>name: str</code></td>
+<td><code>ToolDefinition</code></td>
+<td>Get tool by name</td>
+</tr>
+<tr>
+<td><code>list_all_tools()</code></td>
+<td>-</td>
+<td><code>List[ToolDefinition]</code></td>
+<td>List all tools</td>
+</tr>
+<tr>
+<td><code>search_tools(query)</code></td>
+<td><code>query: str</code></td>
+<td><code>List[ToolDefinition]</code></td>
+<td>Search tools by keyword</td>
+</tr>
+</tbody>
+</table>
+<h3 id="toolgenerator">ToolGenerator</h3>
+<p>Generate custom tools from descriptions.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Parameters</th>
+<th>Returns</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>generate_tool(description)</code></td>
+<td><code>description: str</code></td>
+<td><code>ToolDefinition</code></td>
+<td>Generate from natural language</td>
+</tr>
+<tr>
+<td><code>generate_from_template(template, **kwargs)</code></td>
+<td><code>template: str, **kwargs</code></td>
+<td><code>ToolDefinition</code></td>
+<td>Generate from template</td>
+</tr>
+<tr>
+<td><code>validate_tool(tool)</code></td>
+<td><code>tool: ToolDefinition</code></td>
+<td><code>bool</code></td>
+<td>Validate tool code</td>
+</tr>
+</tbody>
+</table>
+<h3 id="toolcategory-enum">ToolCategory (Enum)</h3>
+<pre><code class="language-python">class ToolCategory(Enum):
+    WEB_SEARCH = &quot;web_search&quot;
+    FILE_OPERATIONS = &quot;file_operations&quot;
+    DATA_PROCESSING = &quot;data_processing&quot;
+    CODE_EXECUTION = &quot;code_execution&quot;
+    API_INTEGRATION = &quot;api_integration&quot;
+    DATABASE = &quot;database&quot;
+    COMMUNICATION = &quot;communication&quot;
+    MATH_CALCULATION = &quot;math_calculation&quot;
+    TEXT_PROCESSING = &quot;text_processing&quot;
+    IMAGE_PROCESSING = &quot;image_processing&quot;
+    CUSTOM = &quot;custom&quot;
+</code></pre>
+<h3 id="tooldefinition-dataclass">ToolDefinition (DataClass)</h3>
+<pre><code class="language-python">@dataclass
+class ToolDefinition:
+    name: str                    # Tool name
+    description: str             # Tool description
+    category: ToolCategory       # Tool category
+    parameters: Dict[str, Any]   # Input parameters schema
+    returns: str                 # Return type description
+    code: str                    # Python implementation
+</code></pre>
+<hr />
+<h2 id="orchestration-module">Orchestration Module</h2>
+<pre><code class="language-python">from multi_agent_generator.orchestration import (
+    Orchestrator,
+    PatternType,
+    SupervisorPattern,
+    DebatePattern,
+    VotingPattern,
+    PipelinePattern,
+    MapReducePattern,
 )
-test_suite.save(&quot;tests/&quot;)
+</code></pre>
+<h3 id="orchestrator">Orchestrator</h3>
+<p>High-level orchestration interface.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Parameters</th>
+<th>Returns</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>generate_from_description(description)</code></td>
+<td><code>description: str</code></td>
+<td><code>dict</code></td>
+<td>Generate from natural language</td>
+</tr>
+<tr>
+<td><code>create_pattern_config(pattern_type, agents, task_description, **kwargs)</code></td>
+<td>Various</td>
+<td><code>dict</code></td>
+<td>Create pattern configuration</td>
+</tr>
+<tr>
+<td><code>generate_code(config)</code></td>
+<td><code>config: dict</code></td>
+<td><code>str</code></td>
+<td>Generate executable code</td>
+</tr>
+<tr>
+<td><code>list_patterns()</code></td>
+<td>-</td>
+<td><code>List[PatternType]</code></td>
+<td>List available patterns</td>
+</tr>
+</tbody>
+</table>
+<h3 id="patterntype-enum">PatternType (Enum)</h3>
+<pre><code class="language-python">class PatternType(Enum):
+    SUPERVISOR = &quot;supervisor&quot;
+    DEBATE = &quot;debate&quot;
+    VOTING = &quot;voting&quot;
+    PIPELINE = &quot;pipeline&quot;
+    MAP_REDUCE = &quot;map_reduce&quot;
+</code></pre>
+<h3 id="pattern-classes">Pattern Classes</h3>
+<h4 id="supervisorpattern">SupervisorPattern</h4>
+<pre><code class="language-python">SupervisorPattern(
+    supervisor_name: str,
+    worker_agents: List[str],
+    delegation_rules: Optional[Dict] = None
+)
+</code></pre>
+<h4 id="debatepattern">DebatePattern</h4>
+<pre><code class="language-python">DebatePattern(
+    debaters: List[str],
+    moderator: str,
+    max_rounds: int = 3
+)
+</code></pre>
+<h4 id="votingpattern">VotingPattern</h4>
+<pre><code class="language-python">VotingPattern(
+    voters: List[str],
+    voting_method: str = &quot;majority&quot;  # &quot;majority&quot;, &quot;weighted&quot;, &quot;ranked&quot;
+)
+</code></pre>
+<h4 id="pipelinepattern">PipelinePattern</h4>
+<pre><code class="language-python">PipelinePattern(
+    stages: List[str],
+    error_handling: str = &quot;stop&quot;  # &quot;stop&quot;, &quot;skip&quot;, &quot;retry&quot;
+)
+</code></pre>
+<h4 id="mapreducepattern">MapReducePattern</h4>
+<pre><code class="language-python">MapReducePattern(
+    mappers: List[str],
+    reducer: str,
+    chunk_strategy: str = &quot;equal&quot;  # &quot;equal&quot;, &quot;by_size&quot;, &quot;by_topic&quot;
+)
+</code></pre>
+<hr />
+<h2 id="evaluation-module">Evaluation Module</h2>
+<pre><code class="language-python">from multi_agent_generator.evaluation import (
+    TestGenerator,
+    TestCase,
+    TestSuite,
+    TestType,
+    AgentEvaluator,
+    EvaluationResult,
+    EvaluationConfig,
+    Benchmark,
+    BenchmarkResult,
+)
+</code></pre>
+<h3 id="testgenerator">TestGenerator</h3>
+<p>Generate test suites for agents.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Parameters</th>
+<th>Returns</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>generate_test_suite(agent_config, test_types)</code></td>
+<td><code>config: dict, types: List[str]</code></td>
+<td><code>TestSuite</code></td>
+<td>Generate complete suite</td>
+</tr>
+<tr>
+<td><code>generate_tests(agent_config, test_type)</code></td>
+<td><code>config: dict, type: TestType</code></td>
+<td><code>List[TestCase]</code></td>
+<td>Generate specific tests</td>
+</tr>
+</tbody>
+</table>
+<h3 id="testtype-enum">TestType (Enum)</h3>
+<pre><code class="language-python">class TestType(Enum):
+    UNIT = &quot;unit&quot;
+    INTEGRATION = &quot;integration&quot;
+    E2E = &quot;e2e&quot;
+    PERFORMANCE = &quot;performance&quot;
+    RELIABILITY = &quot;reliability&quot;
+    QUALITY = &quot;quality&quot;
+</code></pre>
+<h3 id="testsuite">TestSuite</h3>
+<pre><code class="language-python">class TestSuite:
+    tests: List[TestCase]
 
-# 6. Set up evaluation
-evaluator = AgentEvaluator()
+    def save(self, directory: str) -&gt; None:
+        &quot;&quot;&quot;Save test files to directory.&quot;&quot;&quot;
 
-# Ready to run and evaluate
-print(&quot;Agent team generated successfully&quot;)
-print(f&quot;Tools available: {len(web_tools) + len(file_tools) + 1}&quot;)
-print(f&quot;Tests generated: {len(test_suite.tests)}&quot;)
+    def to_code(self) -&gt; str:
+        &quot;&quot;&quot;Get all tests as code string.&quot;&quot;&quot;
+</code></pre>
+<h3 id="testcase">TestCase</h3>
+<pre><code class="language-python">@dataclass
+class TestCase:
+    name: str
+    test_type: TestType
+    code: str
+    description: str
+</code></pre>
+<h3 id="agentevaluator">AgentEvaluator</h3>
+<p>Evaluate agent output quality.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Parameters</th>
+<th>Returns</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>evaluate(agent_output, expected_output, task_description, config)</code></td>
+<td>Various</td>
+<td><code>EvaluationResult</code></td>
+<td>Evaluate single output</td>
+</tr>
+<tr>
+<td><code>evaluate_batch(test_cases)</code></td>
+<td><code>List[dict]</code></td>
+<td><code>List[EvaluationResult]</code></td>
+<td>Evaluate multiple outputs</td>
+</tr>
+</tbody>
+</table>
+<h3 id="evaluationconfig">EvaluationConfig</h3>
+<pre><code class="language-python">@dataclass
+class EvaluationConfig:
+    metrics: List[str] = field(default_factory=lambda: [
+        &quot;relevance&quot;, &quot;completeness&quot;, &quot;coherence&quot;, 
+        &quot;accuracy&quot;, &quot;conciseness&quot;, &quot;format&quot;, &quot;tone&quot;
+    ])
+    weights: Optional[Dict[str, float]] = None
+    threshold: float = 0.7
+</code></pre>
+<h3 id="evaluationresult">EvaluationResult</h3>
+<pre><code class="language-python">@dataclass
+class EvaluationResult:
+    overall_score: float      # 0.0 - 1.0
+    metrics: Dict[str, float] # Individual scores
+    feedback: str             # Detailed feedback
+    passed: bool              # Above threshold?
+</code></pre>
+<h3 id="benchmark">Benchmark</h3>
+<p>Performance benchmarking.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Parameters</th>
+<th>Returns</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>run(agent, test_cases, iterations)</code></td>
+<td>Various</td>
+<td><code>BenchmarkResult</code></td>
+<td>Benchmark single agent</td>
+</tr>
+<tr>
+<td><code>compare(agents, test_cases)</code></td>
+<td><code>Dict[str, Agent], List</code></td>
+<td><code>ComparisonResult</code></td>
+<td>Compare multiple agents</td>
+</tr>
+</tbody>
+</table>
+<h3 id="benchmarkresult">BenchmarkResult</h3>
+<pre><code class="language-python">@dataclass
+class BenchmarkResult:
+    avg_response_time: float    # milliseconds
+    p95_response_time: float    # 95th percentile
+    throughput: float           # requests/second
+    success_rate: float         # percentage
+    error_rate: float           # percentage
+    avg_quality_score: float    # 0.0 - 1.0
+</code></pre>
+<hr />
+<h2 id="framework-generators">Framework Generators</h2>
+<p>Individual framework code generators.</p>
+<pre><code class="language-python">from multi_agent_generator.frameworks import (
+    create_crewai_code,
+    create_crewai_flow_code,
+    create_langgraph_code,
+    create_react_code,
+    create_react_lcel_code,
+    create_agno_code,
+)
+</code></pre>
+<p>Each function accepts a configuration dictionary and returns generated code:</p>
+<pre><code class="language-python">code = create_crewai_code(config: dict) -&gt; str
 </code></pre>
 
 
