@@ -1,7 +1,7 @@
 # Multi-Agent Generator
 
 <p align="center">
-  <img alt="mag-banner" src="mag-banner.png" />
+  <img alt="mag-banner" src="https://raw.githubusercontent.com/aakriti1318/multi-agent-generator/main/mag-banner.png" />
 </p>
 
 <p align="center">
@@ -20,10 +20,11 @@
 A powerful **low-code/no-code** tool that transforms plain English instructions into fully configured multi-agent AI teams — no scripting, no complexity.
 Powered by [LiteLLM](https://docs.litellm.ai/) for **provider-agnostic support** (OpenAI, WatsonX, Ollama, Anthropic, etc.) with both a **CLI** and an optional **Streamlit UI**.
 
-### What's New in v0.5.0
+### What's New in v1.0.0
 - **Tool Auto-Discovery & Generation** - 15+ pre-built tools + natural language tool creation
 - **Multi-Agent Orchestration Patterns** - Supervisor, Debate, Voting, Pipeline, MapReduce
 - **Evaluation & Testing Framework** - Auto-generated tests + output quality metrics
+- **CLI Support** - Full CLI commands for tools, evaluation, and orchestration
 
 ---
 

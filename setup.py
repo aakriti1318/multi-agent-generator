@@ -24,12 +24,10 @@ REQUIREMENTS = [
 
 setup(
     name="multi-agent-generator",
-    version="0.4.0",
+    version="1.0.0",
     description="Generate multi-agent AI teams from plain English using LiteLLM-compatible providers",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    author="Aakriti Aggarwal",
-    author_email="aakritiaggarwal2k@gmail.com",
     url="https://github.com/aakriti1318/multi-agent-generator",
     packages=find_packages(),
     include_package_data=True,
