@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "multi-agent-generator"
-version = "0.5.0"
+version = "0.5.1"
 description = "Generate multi-agent AI teams from plain English, supporting multiple LLM backends via LiteLLM"
 readme = "README.md"
 requires-python = ">=3.8"
