@@ -1,7 +1,21 @@
 # Multi-Agent Generator
-<img width="807" height="264" alt="Screenshot 2025-08-18 at 12 59 52 PM" src="https://github.com/user-attachments/assets/90665135-80a3-43e2-82cc-ae7fa1dcc6a3" />
 
-**PyPi Link** - [Multi-agent-generator](https://pypi.org/project/multi-agent-generator/)
+<p align="center">
+  <img alt="mag-banner" src="mag-banner.png" />
+</p>
+
+<p align="center">
+  <a href="https://pypi.org/project/multi-agent-generator/"><img src="https://img.shields.io/pypi/v/multi-agent-generator?color=blue&label=PyPI" alt="PyPI version"></a>
+  <a href="https://pypi.org/project/multi-agent-generator/"><img src="https://img.shields.io/pypi/pyversions/multi-agent-generator" alt="Python Version"></a>
+  <a href="https://pypi.org/project/multi-agent-generator/"><img src="https://img.shields.io/pypi/dm/multi-agent-generator?color=green" alt="PyPI Downloads"></a>
+  <a href="https://github.com/aakriti1318/multi-agent-generator/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License MIT"></a>
+</p>
+
+<p align="center">
+  <a href="https://docs.pydantic.dev/"><img src="https://img.shields.io/badge/Pydantic-v2-E92063.svg" alt="Pydantic v2"></a>
+  <a href="https://pre-commit.com/"><img src="https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit" alt="pre-commit"></a>
+  <a href="https://aakriti1318.github.io/multi-agent-generator/"><img src="https://img.shields.io/badge/docs-mkdocs-blue" alt="Docs"></a>
+</p>
 
 A powerful **low-code/no-code** tool that transforms plain English instructions into fully configured multi-agent AI teams — no scripting, no complexity.
 Powered by [LiteLLM](https://docs.litellm.ai/) for **provider-agnostic support** (OpenAI, WatsonX, Ollama, Anthropic, etc.) with both a **CLI** and an optional **Streamlit UI**.
@@ -46,12 +60,12 @@ from multi_agent_generator.tools import ToolRegistry, ToolGenerator
 
 # Browse 15+ pre-built tools across 10 categories
 registry = ToolRegistry()
-web_tools = registry.get_tools_by_category("web_search")
-all_tools = registry.list_all_tools()
+web_tools = registry.list_by_category("web_search")
+all_tools = registry.list_all()
 
 # Generate custom tools from natural language
 generator = ToolGenerator()
-tool = generator.generate_tool("Create a tool that fetches weather data for a city")
+tool = generator.generate_from_description("Create a tool that fetches weather data for a city")
 print(tool.code)  # Ready-to-use Python code!
 ```
 
@@ -212,6 +226,61 @@ Get JSON configuration only:
 
 ```bash
 multi-agent-generator "I need a team to analyze customer data" --framework react --format json
+```
+
+### Tool Generation via CLI
+
+Generate custom tools from natural language:
+
+```bash
+# Generate a custom tool
+multi-agent-generator --tool "Create a tool to fetch weather data from an API"
+
+# Save to file
+multi-agent-generator --tool "Create a web scraper tool" --output scraper_tool.py
+
+# List all available tools
+multi-agent-generator --list-tools
+
+# List tools by category
+multi-agent-generator --list-tools --tool-category api_integration
+```
+
+### Evaluation via CLI
+
+Evaluate agent outputs directly from the command line:
+
+```bash
+# Basic evaluation
+multi-agent-generator --evaluate --query "What is AI?" --response "AI is artificial intelligence..."
+
+# With expected output for accuracy scoring
+multi-agent-generator --evaluate \
+  --query "Summarize machine learning" \
+  --response "ML is a subset of AI that learns from data" \
+  --expected "Machine learning is an AI technique" \
+  --threshold 0.8
+
+# Save results to file
+multi-agent-generator --evaluate --query "Test" --response "Response" --output results.json
+```
+
+### Orchestration via CLI
+
+Create orchestrated multi-agent systems:
+
+```bash
+# Get pattern suggestion from description
+multi-agent-generator --orchestrate "I need agents to debate and reach consensus"
+
+# Generate code for a specific pattern
+multi-agent-generator --pattern supervisor --framework langgraph --output supervisor.py
+
+# List all available patterns
+multi-agent-generator --list-patterns
+
+# Customize number of agents
+multi-agent-generator --pattern voting --num-agents 5 --framework crewai
 ```
 
 ### Streamlit UI

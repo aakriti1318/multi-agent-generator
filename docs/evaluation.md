@@ -7,6 +7,131 @@ The Evaluation module helps you test your agents and measure output quality auto
 - **Test Generator** - Auto-generate pytest test suites
 - **Agent Evaluator** - Measure output quality with 7 metrics
 - **Benchmark** - Performance testing and comparison
+- **CLI support** - Evaluate agent outputs from the command line
+
+---
+
+## CLI Usage
+
+### Basic Evaluation
+
+Evaluate agent output quality directly from the command line:
+
+```bash
+multi-agent-generator --evaluate \
+  --query "What is machine learning?" \
+  --response "Machine learning is a subset of artificial intelligence that enables computers to learn from data without being explicitly programmed."
+```
+
+**Output:**
+```
+📊 Evaluating agent output...
+
+Evaluation Results: ✅ PASSED
+==================================================
+Query: What is machine learning?
+Response: Machine learning is a subset of artificial intelligence that enables computers to learn from data...
+
+Metrics:
+  • Relevance:        1.00
+  • Completeness:     0.50
+  • Coherence:        0.80
+  • Accuracy:         0.70
+  • Task Completion:  0.70
+  • Response Time:    0.00ms
+  • Token Count:      22
+
+Overall Score: 0.740 (threshold: 0.7)
+```
+
+### With Expected Output
+
+Provide an expected output for accuracy comparison:
+
+```bash
+multi-agent-generator --evaluate \
+  --query "Explain neural networks" \
+  --response "Neural networks are computing systems inspired by biological neurons" \
+  --expected "Neural networks are machine learning models inspired by the human brain"
+```
+
+### Custom Threshold
+
+Set a custom passing threshold (default is 0.7):
+
+```bash
+multi-agent-generator --evaluate \
+  --query "What is AI?" \
+  --response "AI stands for Artificial Intelligence" \
+  --threshold 0.8
+```
+
+**Output (when below threshold):**
+```
+📊 Evaluating agent output...
+
+Evaluation Results: ❌ FAILED
+==================================================
+Query: What is AI?
+Response: AI stands for Artificial Intelligence
+
+Metrics:
+  • Relevance:        0.70
+  • Completeness:     0.45
+  • Coherence:        0.90
+  • Accuracy:         0.80
+  • Task Completion:  0.50
+
+Overall Score: 0.670 (threshold: 0.8)
+
+Feedback:
+  • Response lacks detail and explanation
+  • Consider providing more context about AI capabilities
+```
+
+### Save Results to File
+
+Save evaluation results as JSON:
+
+```bash
+multi-agent-generator --evaluate \
+  --query "Summarize machine learning" \
+  --response "ML is a type of AI that learns from data" \
+  --output evaluation_results.json
+```
+
+**Generated JSON:**
+```json
+{
+  "query": "Summarize machine learning",
+  "response": "ML is a type of AI that learns from data",
+  "metrics": {
+    "relevance_score": 0.85,
+    "completeness_score": 0.70,
+    "coherence_score": 0.90,
+    "accuracy_score": 0.80,
+    "response_time_ms": 0.0,
+    "token_count": 10,
+    "task_completion_rate": 0.75,
+    "overall_score": 0.800
+  },
+  "passed": true,
+  "feedback": ["Response is relevant but could be more comprehensive"],
+  "errors": []
+}
+```
+
+### Evaluation Metrics Explained
+
+| Metric | Description | CLI Display |
+|--------|-------------|-------------|
+| Relevance | How relevant is the output to the query | `Relevance: 0.XX` |
+| Completeness | Does it cover all required aspects | `Completeness: 0.XX` |
+| Coherence | Is the output logically structured | `Coherence: 0.XX` |
+| Accuracy | Factual correctness | `Accuracy: 0.XX` |
+| Task Completion | Did it fulfill the request | `Task Completion: 0.XX` |
+| Response Time | Processing time in milliseconds | `Response Time: X.XXms` |
+| Token Count | Number of tokens in response | `Token Count: XX` |
 
 ---
 

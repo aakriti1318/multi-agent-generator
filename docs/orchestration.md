@@ -16,6 +16,141 @@ Choose from 5 orchestration patterns based on your use case:
 
 ---
 
+## CLI Usage
+
+### List Available Patterns
+
+See all orchestration patterns with descriptions and use cases:
+
+```bash
+multi-agent-generator --list-patterns
+```
+
+**Output:**
+```
+🔄 Available Orchestration Patterns:
+
+  [SUPERVISOR PATTERN]
+    Description: A supervisor agent coordinates and delegates tasks to specialized worker agents
+    Use Cases:
+      • Project management workflows
+      • Quality assurance processes
+      • Customer service escalation
+
+  [DEBATE PATTERN]
+    Description: Multiple agents argue different perspectives and reach consensus through structured debate
+    Use Cases:
+      • Decision making processes
+      • Fact checking and verification
+      • Brainstorming sessions
+
+  [VOTING PATTERN]
+    Description: Multiple agents vote on decisions, with configurable voting rules
+    Use Cases:
+      • Ensemble AI decisions
+      • Content moderation
+      • Quality assessment
+
+  [PIPELINE PATTERN]
+    Description: Sequential processing chain where each agent transforms and passes data to the next
+    Use Cases:
+      • Content creation and editing
+      • Data transformation pipelines
+      • Multi-stage processing
+
+  [MAP-REDUCE PATTERN]
+    Description: Parallel processing where multiple agents work on chunks, then results are aggregated
+    Use Cases:
+      • Large document summarization
+      • Parallel data analysis
+      • Distributed processing
+```
+
+### Get Pattern Suggestion
+
+Describe your needs in natural language and get a recommended pattern:
+
+```bash
+multi-agent-generator --orchestrate "I need a team where a manager assigns tasks to specialists"
+```
+
+**Output:**
+```
+🔄 Analyzing task description...
+   "I need a team where a manager assigns tasks to specialists"
+
+📌 Recommended pattern: supervisor
+
+🏗️  Generating supervisor orchestration code for langgraph...
+
+# Generated code follows...
+```
+
+### Generate Code for Specific Pattern
+
+```bash
+# Generate supervisor pattern
+multi-agent-generator --pattern supervisor --framework langgraph
+
+# Generate debate pattern with CrewAI
+multi-agent-generator --pattern debate --framework crewai
+
+# Generate voting pattern with 5 agents
+multi-agent-generator --pattern voting --num-agents 5
+```
+
+### Save to File
+
+```bash
+multi-agent-generator --pattern supervisor --framework langgraph --output supervisor_system.py
+```
+
+**Output:**
+```
+🔄 Using orchestration pattern: supervisor
+
+🏗️  Generating supervisor orchestration code for langgraph...
+
+✅ Orchestration code saved to supervisor_system.py
+
+📋 Orchestration Summary:
+   Pattern: supervisor
+   Framework: langgraph
+   Agents: ['supervisor', 'worker_1', 'worker_2']
+```
+
+### Customize Number of Agents
+
+```bash
+# Generate with 5 agents instead of default 3
+multi-agent-generator --pattern map_reduce --num-agents 5 --framework langgraph
+```
+
+### Pattern + Framework Combinations
+
+| Pattern | LangGraph | CrewAI | CrewAI-Flow |
+|---------|-----------|--------|-------------|
+| supervisor | ✅ | ✅ | ✅ |
+| debate | ✅ | ✅ | ✅ |
+| voting | ✅ | ✅ | ✅ |
+| pipeline | ✅ | ✅ | ✅ |
+| map_reduce | ✅ | ✅ | ✅ |
+
+### Example: Complete Workflow
+
+```bash
+# Step 1: See available patterns
+multi-agent-generator --list-patterns
+
+# Step 2: Get suggestion for your use case
+multi-agent-generator --orchestrate "I need agents to review and improve a document collaboratively"
+
+# Step 3: Generate the code
+multi-agent-generator --pattern pipeline --framework langgraph --num-agents 4 --output document_pipeline.py
+```
+
+---
+
 ## Quick Start
 
 ```python
